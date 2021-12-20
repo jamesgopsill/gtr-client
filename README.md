@@ -1,0 +1,1 @@
+# A Typescript Client for the Gateway to Research API

@@ -1,0 +1,7 @@
+node_modules/
+scratch/
+
+tests/test.config.ts
+*.tsbuildinfo
+
+.DS_Store
