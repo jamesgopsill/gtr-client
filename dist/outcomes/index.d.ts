@@ -1,12 +1,7 @@
-import { FilterParams } from "..";
 import { Base } from "../base";
-import { Collaboration, FutureFunding, ImpactSummary, KeyFinding, PaginatedCollaborations, PaginatedImpactSummaries, PaginatedKeyFindings, PaginatedOutcomes, PaginatedPublications, Publication } from "./interfaces";
+import { FilterParams } from "../generic.interfaces";
+import { Collaboration, FurtherFunding, ImpactSummary, IntellectualProperty, KeyFinding, PaginatedCollaborations, PaginatedImpactSummaries, PaginatedIntellectualProperties, PaginatedKeyFindings, PaginatedOutcomes, PaginatedPolicyInfluences, PaginatedProducts, PaginatedPublications, PaginatedResearchMaterials, PaginatedSpinOuts, PolicyInfluence, Product, Publication, ResearchMaterial, SpinOut } from "./interfaces";
 export declare class Outcomes extends Base {
-    protected processCollaborationDates(c: Collaboration): void;
-    protected processFurtherFundingDates(f: FutureFunding): void;
-    protected processKeyFindingDates(k: KeyFinding): void;
-    protected processImpactSummaryDates(impact: ImpactSummary): void;
-    protected processPublicationDates(p: Publication): void;
     getOutcomes(params?: FilterParams): Promise<PaginatedOutcomes>;
     getKeyFindings(params?: FilterParams): Promise<PaginatedKeyFindings>;
     getKeyFinding(id: string): Promise<KeyFinding>;
@@ -16,4 +11,16 @@ export declare class Outcomes extends Base {
     getPublication(id: string): Promise<Publication>;
     getCollaborations(params?: FilterParams): Promise<PaginatedCollaborations>;
     getCollaboration(id: string): Promise<Collaboration>;
+    getIntellectualProperties(params?: FilterParams): Promise<PaginatedIntellectualProperties>;
+    getIntellectualProperty(id: string): Promise<IntellectualProperty>;
+    getPolicyInfluences(params?: FilterParams): Promise<PaginatedPolicyInfluences>;
+    getPolicyInfluence(id: string): Promise<PolicyInfluence>;
+    getProducts(params?: FilterParams): Promise<PaginatedProducts>;
+    getProduct(id: string): Promise<Product>;
+    getResearchMaterials(params?: FilterParams): Promise<PaginatedResearchMaterials>;
+    getResearchMaterial(id: string): Promise<ResearchMaterial>;
+    getSpinOuts(params?: FilterParams): Promise<PaginatedSpinOuts>;
+    getSpinOut(id: string): Promise<SpinOut>;
+    getFurtherFundings(params?: FilterParams): Promise<any>;
+    getFurtherFunding(id: string): Promise<FurtherFunding>;
 }

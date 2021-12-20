@@ -15,19 +15,21 @@ class ResponseError extends Error {
 }
 exports.ResponseError = ResponseError;
 /**
- * The base class to build the API client from
+ * The base class to build the API client from.
  */
 class Base {
     constructor(debug = false) {
-        this.baseURL = "https://gtr.ukri.org/gtr/api";
+        this.baseUrl = "https://gtr.ukri.org/gtr/api";
         this.debug = debug;
     }
     /**
-     * An internal get request function
+     * An internal get request function.
+     * @param url The URL for the get request.
+     * @param params The parameters to be sent along with the get request.
      */
     async get(url, params = {}) {
         if (Object.keys(params).length !== 0) {
-            url += "?" + (new URLSearchParams(params)).toString();
+            url += "?" + new URLSearchParams(params).toString();
         }
         if (this.debug)
             console.log(url);
@@ -38,18 +40,41 @@ class Base {
                 "Content-Type": "application/json",
                 Accept: "application/vnd.rcuk.gtr.json-v7",
             },
-        }).then((r) => {
+        }).then(async (r) => {
             if (r.ok) {
-                return r.json();
+                const json = await r.json();
+                this.recursiveProcessObjectDates(json);
+                return json;
             }
             throw new ResponseError(r);
         });
     }
-    processLinksDates(links) {
-        for (const l of links.link) {
-            l.start = new Date(l.start);
-            l.end = new Date(l.end);
-        }
+    /**
+     * This function recrusively scans through an object to detect numeric dates and converts them to Date objects for the end-user to handle.
+     * @param obj The response json object to recursively scan through.
+     */
+    recursiveProcessObjectDates(obj) {
+        Object.keys(obj).forEach((key) => {
+            // console.log(key, typeof obj[key], Array.isArray(obj[key]))
+            // If the object is a number and it has a length of 13 then consider it as a date
+            if (typeof obj[key] == "number") {
+                if (obj[key].toString().length == 13) {
+                    // console.log("Date Found")
+                    obj[key] = new Date(obj[key]);
+                }
+            }
+            // If it is an array then iterate through the objects and perform the recursive process objects
+            if (typeof obj[key] == "object" && Array.isArray(obj[key])) {
+                for (const el of obj[key]) {
+                    // console.log(el)
+                    this.recursiveProcessObjectDates(el);
+                }
+            }
+            // if it is an object then process it
+            if (typeof obj[key] == "object" && Array.isArray(obj[key]) == false) {
+                this.recursiveProcessObjectDates(obj[key]);
+            }
+        });
     }
 }
 exports.Base = Base;

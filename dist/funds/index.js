@@ -3,44 +3,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Funds = void 0;
 const base_1 = require("../base");
 class Funds extends base_1.Base {
-    processFund(fund) {
-        fund.created = new Date(fund.created);
-        fund.start = new Date(fund.start);
-        fund.end = new Date(fund.end);
-        for (const link of fund.links.link) {
-            link.start = new Date(link.start);
-            link.end = new Date(link.end);
-        }
-    }
     async getFunds(params = {}) {
-        const url = `${this.baseURL}/funds`;
-        const res = await this.get(url, params);
-        for (const fund of res.fund) {
-            this.processFund(fund);
-        }
-        return res;
+        const url = `${this.baseUrl}/funds`;
+        return this.get(url, params);
     }
     async getFund(id) {
-        const url = `${this.baseURL}/funds/${id}`;
-        const fund = await this.get(url);
-        this.processFund(fund);
-        return fund;
+        const url = `${this.baseUrl}/funds/${id}`;
+        return this.get(url);
     }
     async getProjectFunds(id) {
-        const url = `${this.baseURL}/projects/${id}/funds`;
-        const res = await this.get(url);
-        for (const fund of res.fund) {
-            this.processFund(fund);
-        }
-        return res;
+        const url = `${this.baseUrl}/projects/${id}/funds`;
+        return this.get(url);
     }
     async getOrganisationFunds(id) {
-        const url = `${this.baseURL}/organisations/${id}/funds`;
-        const res = await this.get(url);
-        for (const fund of res.fund) {
-            this.processFund(fund);
-        }
-        return res;
+        const url = `${this.baseUrl}/organisations/${id}/funds`;
+        return this.get(url);
     }
 }
 exports.Funds = Funds;

@@ -4,18 +4,26 @@ export interface PaginatedOutcomes extends Paginated {
 	artisticAndCreativeProduct: any[]
 	collaboration: Collaboration[]
 	exploitation: any[]
-	furtherFunding: FutureFunding[]
-	impactSummary: any[]
-	intellectualProperty: any[]
+	furtherFunding: FurtherFunding[]
+	impactSummary: ImpactSummary[]
+	intellectualProperty: IntellectualProperty[]
 	keyFinding: KeyFinding[]
-	policyInfluence: any[]
-	product: any[]
+	policyInfluence: PolicyInfluence[]
+	product: Product[]
 	researchDatabaseAndModel: any[]
 	researchMaterial: any[]
 	softwareAndTechnicalProduct: any[]
-	spinOut: any[]
+	spinOut: SpinOut[]
 	otherResearchItem: any[]
 	publication: any[]
+}
+
+export interface OutcomeBase {
+	links: Links
+	id: string
+	outcomeid: string
+	href: string
+	created: Date
 }
 
 export interface PaginatedKeyFindings extends Paginated {
@@ -34,12 +42,78 @@ export interface PaginatedCollaborations extends Paginated {
 	collaboration: Collaboration[]
 }
 
-export interface Publication {
-	links: Links
-	id: string
-	outcomeid: string
-	href: string
-	created: Date
+export interface PaginatedIntellectualProperties extends Paginated {
+	intellectualProperty: IntellectualProperty[]
+}
+
+export interface PaginatedPolicyInfluences extends Paginated {
+	policyInfluence: PolicyInfluence[]
+}
+
+export interface PaginatedProducts extends Paginated {
+	product: Product[]
+}
+
+export interface PaginatedResearchMaterials extends Paginated {
+	researchMaterial: ResearchMaterial[]
+}
+
+export interface PaginatedFurtherFunding extends Paginated {
+	furtherFunding: FurtherFunding[]
+}
+
+export interface PaginatedSpinOuts extends Paginated {
+	spinOut: SpinOut[]
+}
+
+export interface SpinOut extends OutcomeBase {
+	description: string
+	companyName: string
+	impact: string
+	website: string
+	yearEstablished: string
+}
+
+export interface ResearchMaterial extends OutcomeBase {
+	title: string
+	description: string
+	type: string
+	impact: string
+	providedToOthers: boolean
+}
+
+export interface Product extends OutcomeBase {
+	title: string
+	description: string
+	type: string
+	stage: string
+	status: string
+	yearDevelopmentCompleted: number
+	impact: string
+	supportingUrl: string
+}
+
+export interface PolicyInfluence extends OutcomeBase {
+	influence: string
+	type: string
+	impact: string
+	areas: {
+		item: any[]
+	}
+	geographicReach: string
+}
+
+export interface IntellectualProperty extends OutcomeBase {
+	title: string
+	description: string
+	protection: string
+	patentId: string
+	yearProtectedGranted: number
+	impact: string
+	licensed: string
+}
+
+export interface Publication extends OutcomeBase {
 	title: string
 	type: string
 	journalTitle: string
@@ -53,12 +127,7 @@ export interface Publication {
 	author: string
 }
 
-export interface Collaboration {
-	links: Links
-	id: string
-	outcomeid: string
-	href: string
-	created: Date
+export interface Collaboration extends OutcomeBase {
 	description: string
 	parentOrganisation: string
 	childOrganisation: string
@@ -70,12 +139,7 @@ export interface Collaboration {
 	impact: string
 }
 
-export interface FutureFunding {
-	links: Links
-	id: string
-	outcomeid: string
-	href: string
-	created: Date
+export interface FurtherFunding extends OutcomeBase {
 	description: string
 	amount: {
 		currencyCode: string
@@ -89,12 +153,7 @@ export interface FutureFunding {
 	country: string
 }
 
-export interface KeyFinding {
-	links: Links
-	id: string
-	outcomeid: string
-	href: string
-	created: Date
+export interface KeyFinding extends OutcomeBase {
 	description: string
 	exploitationPathways: string
 	sectors: {
@@ -103,12 +162,7 @@ export interface KeyFinding {
 	supportingUrl: string
 }
 
-export interface ImpactSummary {
-	links: Links
-	id: string
-	outcomeid: string
-	href: string
-	created: Date
+export interface ImpactSummary extends OutcomeBase {
 	description: string
 	impactTypes: {
 		item: string[]
