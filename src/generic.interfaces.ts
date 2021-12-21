@@ -1,16 +1,19 @@
-export interface FilterParams {
-	/** Search Terms */
+export interface FilterParamsBase {
+	/** Query term, q=search_term */
 	q?: string
-	/** Specify Page */
+	/** Page of result set, starting at 1, p=1 */
 	p?: number
-	/** Specify Size of Page */
+	/** Size of page between 10 and 100, defaulted to s=20 */
 	s?: number
-	/** Search Fields */
+	/** Sort order A (ascending) or D (descending), so=A */
+	so?: "A" | "D"
+}
+
+export interface GenericFilterParams extends FilterParamsBase {
+	/** Search fields */
 	f?: string
-	/** Sort by */
+	/** Sort fields */
 	sf?: string
-	/** Sort order */
-	so?: "A" | "B"
 }
 
 export interface Paginated {
@@ -31,3 +34,5 @@ export interface Link {
 export interface Links {
 	link: Link[]
 }
+
+

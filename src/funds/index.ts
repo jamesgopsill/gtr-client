@@ -1,9 +1,10 @@
 import { Base } from "../base"
-import { FilterParams } from "../generic.interfaces"
-import { Fund, PaginatedFunds } from "./interfaces"
+import { Fund, FundFilterParams, PaginatedFunds } from "./interfaces"
 
 export class Funds extends Base {
-	public async getFunds(params: FilterParams = {}): Promise<PaginatedFunds> {
+	public async getFunds(
+		params: FundFilterParams = {}
+	): Promise<PaginatedFunds> {
 		const url = `${this.baseUrl}/funds`
 		return this.get<PaginatedFunds>(url, params)
 	}

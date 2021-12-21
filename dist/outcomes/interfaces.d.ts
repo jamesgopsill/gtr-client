@@ -2,6 +2,7 @@ import { Links, Paginated } from "..";
 export interface PaginatedOutcomes extends Paginated {
     artisticAndCreativeProduct: any[];
     collaboration: Collaboration[];
+    dissemination: Dissemination[];
     exploitation: any[];
     furtherFunding: FurtherFunding[];
     impactSummary: ImpactSummary[];
@@ -52,6 +53,18 @@ export interface PaginatedFurtherFunding extends Paginated {
 }
 export interface PaginatedSpinOuts extends Paginated {
     spinOut: SpinOut[];
+}
+export interface PaginatedDissemination extends Paginated {
+    dissemination: Dissemination[];
+}
+export interface Dissemination extends OutcomeBase {
+    description: string;
+    form: string;
+    primaryAudience: string;
+    yearsOfDissemination: string;
+    impact: string;
+    geographicReach: string;
+    partOfOfficialScheme: boolean;
 }
 export interface SpinOut extends OutcomeBase {
     description: string;

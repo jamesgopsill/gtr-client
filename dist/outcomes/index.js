@@ -87,5 +87,13 @@ class Outcomes extends base_1.Base {
         const url = `${this.baseUrl}/outcomes/furtherfundings/${id}`;
         return this.get(url);
     }
+    async getDisseminations(params) {
+        const url = `${this.baseUrl}/outcomes/disseminations`;
+        return this.get(url, params);
+    }
+    async getDissemination(id) {
+        const url = `${this.baseUrl}/outcomes/disseminations/${id}`;
+        return this.get(url);
+    }
 }
 exports.Outcomes = Outcomes;

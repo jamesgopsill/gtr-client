@@ -1,10 +1,10 @@
 import { Base } from "../base"
-import { FilterParams } from "../generic.interfaces"
+import { GenericFilterParams } from "../generic.interfaces"
 import { Organisation, PaginatedOrganisations } from "./interfaces"
 
 export class Organisations extends Base {
 	public async getOrganisations(
-		params: FilterParams = {}
+		params: GenericFilterParams = {}
 	): Promise<PaginatedOrganisations> {
 		const url = `${this.baseUrl}/organisations`
 		return this.get<PaginatedOrganisations>(url, params)

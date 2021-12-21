@@ -1,4 +1,4 @@
-import { Link, Paginated } from "../generic.interfaces";
+import { FilterParamsBase, Link, Paginated } from "../generic.interfaces";
 export interface PaginatedFunds extends Paginated {
     fund: Fund[];
 }
@@ -16,4 +16,21 @@ export interface Fund {
         amount: number;
     };
     category: string;
+}
+export declare enum FundsSearchField {
+    FUNDED_PROJECT_TITLE = "fu.pro.t",
+    FUND_AMOUNT = "fu.am",
+    FUNDER_ORGANISATION_NAME = "fu.org.n",
+    FUND_TYPE = "fu.ty"
+}
+export declare enum FundsSortField {
+    FUND_START_DATE = "fu.sd",
+    FUND_AMOUNT = "fu.am",
+    FUND_TYPE = "fu.ty",
+    FUND_END_DATE = "fu.ed",
+    RELEVANCE = "score"
+}
+export interface FundFilterParams extends FilterParamsBase {
+    f?: FundsSearchField[];
+    sf?: FundsSortField;
 }

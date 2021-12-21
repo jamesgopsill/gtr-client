@@ -1,12 +1,14 @@
 import { Base } from "../base"
-import { FilterParams } from "../generic.interfaces"
+import { GenericFilterParams } from "../generic.interfaces"
 import {
 	Collaboration,
+	Dissemination,
 	FurtherFunding,
 	ImpactSummary,
 	IntellectualProperty,
 	KeyFinding,
 	PaginatedCollaborations,
+	PaginatedDissemination,
 	PaginatedImpactSummaries,
 	PaginatedIntellectualProperties,
 	PaginatedKeyFindings,
@@ -24,13 +26,15 @@ import {
 } from "./interfaces"
 
 export class Outcomes extends Base {
-	public async getOutcomes(params?: FilterParams): Promise<PaginatedOutcomes> {
+	public async getOutcomes(
+		params?: GenericFilterParams
+	): Promise<PaginatedOutcomes> {
 		const url = `${this.baseUrl}/outcomes`
 		return this.get<PaginatedOutcomes>(url, params)
 	}
 
 	public async getKeyFindings(
-		params?: FilterParams
+		params?: GenericFilterParams
 	): Promise<PaginatedKeyFindings> {
 		const url = `${this.baseUrl}/outcomes/keyfindings`
 		return this.get<PaginatedKeyFindings>(url, params)
@@ -42,7 +46,7 @@ export class Outcomes extends Base {
 	}
 
 	public async getImpactSummaries(
-		params?: FilterParams
+		params?: GenericFilterParams
 	): Promise<PaginatedImpactSummaries> {
 		const url = `${this.baseUrl}/outcomes/impactsummaries`
 		return this.get<PaginatedImpactSummaries>(url, params)
@@ -54,7 +58,7 @@ export class Outcomes extends Base {
 	}
 
 	public async getPublications(
-		params?: FilterParams
+		params?: GenericFilterParams
 	): Promise<PaginatedPublications> {
 		const url = `${this.baseUrl}/outcomes/publications`
 		return this.get<PaginatedPublications>(url, params)
@@ -66,7 +70,7 @@ export class Outcomes extends Base {
 	}
 
 	public async getCollaborations(
-		params?: FilterParams
+		params?: GenericFilterParams
 	): Promise<PaginatedCollaborations> {
 		const url = `${this.baseUrl}/outcomes/collaborations`
 		return this.get<PaginatedCollaborations>(url, params)
@@ -78,7 +82,7 @@ export class Outcomes extends Base {
 	}
 
 	public async getIntellectualProperties(
-		params?: FilterParams
+		params?: GenericFilterParams
 	): Promise<PaginatedIntellectualProperties> {
 		const url = `${this.baseUrl}/outcomes/intellectualproperties`
 		return this.get<PaginatedIntellectualProperties>(url, params)
@@ -92,7 +96,7 @@ export class Outcomes extends Base {
 	}
 
 	public async getPolicyInfluences(
-		params?: FilterParams
+		params?: GenericFilterParams
 	): Promise<PaginatedPolicyInfluences> {
 		const url = `${this.baseUrl}/outcomes/policyinfluences`
 		return this.get<PaginatedPolicyInfluences>(url, params)
@@ -103,7 +107,9 @@ export class Outcomes extends Base {
 		return this.get<PolicyInfluence>(url)
 	}
 
-	public async getProducts(params?: FilterParams): Promise<PaginatedProducts> {
+	public async getProducts(
+		params?: GenericFilterParams
+	): Promise<PaginatedProducts> {
 		const url = `${this.baseUrl}/outcomes/products`
 		return this.get<PaginatedProducts>(url, params)
 	}
@@ -114,7 +120,7 @@ export class Outcomes extends Base {
 	}
 
 	public async getResearchMaterials(
-		params?: FilterParams
+		params?: GenericFilterParams
 	): Promise<PaginatedResearchMaterials> {
 		const url = `${this.baseUrl}/outcomes/researchmaterials`
 		return this.get<PaginatedResearchMaterials>(url, params)
@@ -125,7 +131,9 @@ export class Outcomes extends Base {
 		return this.get<ResearchMaterial>(url)
 	}
 
-	public async getSpinOuts(params?: FilterParams): Promise<PaginatedSpinOuts> {
+	public async getSpinOuts(
+		params?: GenericFilterParams
+	): Promise<PaginatedSpinOuts> {
 		const url = `${this.baseUrl}/outcomes/spinouts`
 		return this.get<PaginatedSpinOuts>(url, params)
 	}
@@ -135,7 +143,9 @@ export class Outcomes extends Base {
 		return this.get<SpinOut>(url)
 	}
 
-	public async getFurtherFundings(params?: FilterParams): Promise<any> {
+	public async getFurtherFundings(
+		params?: GenericFilterParams
+	): Promise<FurtherFunding[]> {
 		const url = `${this.baseUrl}/outcomes/furtherfundings`
 		return this.get<any>(url, params)
 	}
@@ -143,5 +153,17 @@ export class Outcomes extends Base {
 	public async getFurtherFunding(id: string): Promise<FurtherFunding> {
 		const url = `${this.baseUrl}/outcomes/furtherfundings/${id}`
 		return this.get<FurtherFunding>(url)
+	}
+
+	public async getDisseminations(
+		params?: GenericFilterParams
+	): Promise<PaginatedDissemination> {
+		const url = `${this.baseUrl}/outcomes/disseminations`
+		return this.get<PaginatedDissemination>(url, params)
+	}
+
+	public async getDissemination(id: string): Promise<Dissemination> {
+		const url = `${this.baseUrl}/outcomes/disseminations/${id}`
+		return this.get<Dissemination>(url)
 	}
 }

@@ -1,6 +1,6 @@
 {
   "name": "gtr-client",
-  "version": "0.0.1",
+  "version": "0.4.0",
   "description": "A Typescript Client for the gateway to research (gtr) UKRI API.",
   "keywords": [
     "Gateway to Research",
@@ -22,13 +22,14 @@
     "build": "tsc",
     "docs": "typedoc",
     "format": "prettier --write src/**/* && prettier --write tests/**/*",
-    "pre-add": "yarn format && yarn docs && node clean-dist.js && yarn tsc"
-  },
+    "pre-add": "yarn format && yarn docs && node utils/clean-dist.js && yarn tsc && node utils/clean-crlf.js"
+  }, 
   "dependencies": {
     "cross-fetch": "^3.1.4"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
+    "glob": "^7.2.0",
     "jest": "^27.4.5",
     "prettier": "^2.5.1",
     "prettier-plugin-organize-imports": "^2.3.4",

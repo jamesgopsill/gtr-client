@@ -12,6 +12,7 @@ const productId = "76372627-6304-4654-9CD6-970D8D59C3D6"
 const researchMaterialId = "6DBCBF1E-BA64-45C2-88B3-20DEADF8EB5D"
 const spinOutId = "1CD53236-0D4F-415C-8E15-6EDDD4FF7AD4"
 const furtherFundingId = "1287496F-2DA7-449A-8D18-26C743262CFA"
+const disseminationId = "72717BD6-E17F-4DAD-9B0D-B80A524D0F18"
 
 test("GET outcomes", async () => {
 	try {
@@ -256,6 +257,30 @@ test("GET further fundings", async () => {
 test("GET further funding by id", async () => {
 	try {
 		const v = await client.getFurtherFunding(furtherFundingId)
+		expect(typeof v).toBe("object")
+	} catch (e) {
+		if (e instanceof ResponseError) {
+			console.log(e.response.status, e.response.statusText)
+		}
+		expect(true).toBe(false)
+	}
+})
+
+test("GET disseminations", async () => {
+	try {
+		const v = await client.getDisseminations()
+		expect(typeof v).toBe("object")
+	} catch (e) {
+		if (e instanceof ResponseError) {
+			console.log(e.response.status, e.response.statusText)
+		}
+		expect(true).toBe(false)
+	}
+})
+
+test("GET dissemination by id", async () => {
+	try {
+		const v = await client.getDissemination(disseminationId)
 		expect(typeof v).toBe("object")
 	} catch (e) {
 		if (e instanceof ResponseError) {

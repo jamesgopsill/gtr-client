@@ -22,7 +22,6 @@ test("GET organisations", async () => {
 test("GET organisations", async () => {
 	try {
 		const v = await client.getOrganisation(organisationID)
-		console.log(v.addresses.address)
 		expect(typeof v).toBe("object")
 	} catch (e) {
 		if (e instanceof ResponseError) {
