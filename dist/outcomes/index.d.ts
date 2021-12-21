@@ -1,6 +1,5 @@
+import { Collaboration, Dissemination, FurtherFunding, GenericFilterParams, ImpactSummary, IntellectualProperty, KeyFinding, PaginatedCollaborations, PaginatedDissemination, PaginatedImpactSummaries, PaginatedIntellectualProperties, PaginatedKeyFindings, PaginatedOutcomes, PaginatedPolicyInfluences, PaginatedProducts, PaginatedPublications, PaginatedResearchMaterials, PaginatedSpinOuts, PolicyInfluence, Product, Publication, ResearchMaterial, SpinOut } from "..";
 import { Base } from "../base";
-import { GenericFilterParams } from "../generic.interfaces";
-import { Collaboration, Dissemination, FurtherFunding, ImpactSummary, IntellectualProperty, KeyFinding, PaginatedCollaborations, PaginatedDissemination, PaginatedImpactSummaries, PaginatedIntellectualProperties, PaginatedKeyFindings, PaginatedOutcomes, PaginatedPolicyInfluences, PaginatedProducts, PaginatedPublications, PaginatedResearchMaterials, PaginatedSpinOuts, PolicyInfluence, Product, Publication, ResearchMaterial, SpinOut } from "./interfaces";
 export declare class Outcomes extends Base {
     getOutcomes(params?: GenericFilterParams): Promise<PaginatedOutcomes>;
     getKeyFindings(params?: GenericFilterParams): Promise<PaginatedKeyFindings>;

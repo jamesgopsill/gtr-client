@@ -1,6 +1,6 @@
 import { Link, Paginated } from "../generic.interfaces";
 export interface PaginatedOrganisations extends Paginated {
-    organisation: any[];
+    organisation: Organisation[];
 }
 export interface Organisation {
     links: {

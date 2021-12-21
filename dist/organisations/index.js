@@ -11,12 +11,12 @@ class Organisations extends base_1.Base {
         const url = `${this.baseUrl}/organisations/${id}`;
         return this.get(url);
     }
-    async getProjectOrganisations(id) {
-        const url = `${this.baseUrl}/projects/${id}/organisations`;
+    async getOrganisationsProjects(id) {
+        const url = `${this.baseUrl}/organisations/${id}/projects`;
         return this.get(url);
     }
-    async getPersonOrganisations(id) {
-        const url = `${this.baseUrl}/persons/${id}/organisations`;
+    async getOrganisationsPersons(id) {
+        const url = `${this.baseUrl}/organisations/${id}/persons`;
         return this.get(url);
     }
 }

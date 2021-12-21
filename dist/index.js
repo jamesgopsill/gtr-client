@@ -16,14 +16,19 @@ const base_1 = require("./base");
 const funds_1 = require("./funds");
 const organisations_1 = require("./organisations");
 const outcomes_1 = require("./outcomes");
+const persons_1 = require("./persons");
+const projects_1 = require("./projects");
 /**
  * Inherits from all the other classes featuring the API calls to GtR.
  */
 class GtrClient extends base_1.Base {
 }
 exports.GtrClient = GtrClient;
-(0, apply_mixins_1.applyMixins)(GtrClient, [funds_1.Funds, organisations_1.Organisations, outcomes_1.Outcomes]);
+(0, apply_mixins_1.applyMixins)(GtrClient, [funds_1.Funds, organisations_1.Organisations, outcomes_1.Outcomes, persons_1.Persons, projects_1.Projects]);
 __exportStar(require("./funds/interfaces"), exports);
 __exportStar(require("./generic.interfaces"), exports);
 __exportStar(require("./organisations/interfaces"), exports);
 __exportStar(require("./outcomes/interfaces"), exports);
+__exportStar(require("./persons/interfaces"), exports);
+__exportStar(require("./projects/interfaces"), exports);
+__exportStar(require("./generic.interfaces"), exports);

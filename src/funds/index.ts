@@ -1,5 +1,5 @@
+import { Fund, FundFilterParams, PaginatedFunds } from ".."
 import { Base } from "../base"
-import { Fund, FundFilterParams, PaginatedFunds } from "./interfaces"
 
 export class Funds extends Base {
 	public async getFunds(

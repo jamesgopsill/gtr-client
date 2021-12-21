@@ -4,12 +4,11 @@ import { ResponseError } from "../src/base"
 const client = new GtrClient(true)
 
 const organisationID = "4A348A76-B2D0-4DDD-804A-CE735A6D3798"
-const projectID = "5B19AFBB-23AF-45E3-B23F-1993895CEE6F"
-const personID = "B124BCD5-21F4-476C-8CCC-E21681AEB5C7"
 
 test("GET organisations", async () => {
 	try {
 		const v = await client.getOrganisations()
+		console.log(v.organisation[0])
 		expect(typeof v).toBe("object")
 	} catch (e) {
 		if (e instanceof ResponseError) {
@@ -19,7 +18,7 @@ test("GET organisations", async () => {
 	}
 })
 
-test("GET organisations", async () => {
+test("GET organisation by id", async () => {
 	try {
 		const v = await client.getOrganisation(organisationID)
 		expect(typeof v).toBe("object")
@@ -31,9 +30,9 @@ test("GET organisations", async () => {
 	}
 })
 
-test("GET project organisations", async () => {
+test("GET organisation by id projects", async () => {
 	try {
-		const v = await client.getProjectOrganisations(projectID)
+		const v = await client.getOrganisationsProjects(organisationID)
 		expect(typeof v).toBe("object")
 	} catch (e) {
 		if (e instanceof ResponseError) {
@@ -43,9 +42,9 @@ test("GET project organisations", async () => {
 	}
 })
 
-test("GET person organisations", async () => {
+test("GET organisation by id persons", async () => {
 	try {
-		const v = await client.getPersonOrganisations(personID)
+		const v = await client.getOrganisationsPersons(organisationID)
 		expect(typeof v).toBe("object")
 	} catch (e) {
 		if (e instanceof ResponseError) {

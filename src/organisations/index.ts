@@ -1,6 +1,11 @@
+import {
+	GenericFilterParams,
+	Organisation,
+	PaginatedOrganisations,
+	PaginatedPersons,
+	PaginatedProjects,
+} from ".."
 import { Base } from "../base"
-import { GenericFilterParams } from "../generic.interfaces"
-import { Organisation, PaginatedOrganisations } from "./interfaces"
 
 export class Organisations extends Base {
 	public async getOrganisations(
@@ -15,17 +20,15 @@ export class Organisations extends Base {
 		return this.get<Organisation>(url)
 	}
 
-	public async getProjectOrganisations(
+	public async getOrganisationsProjects(
 		id: string
-	): Promise<PaginatedOrganisations> {
-		const url = `${this.baseUrl}/projects/${id}/organisations`
-		return this.get<PaginatedOrganisations>(url)
+	): Promise<PaginatedProjects> {
+		const url = `${this.baseUrl}/organisations/${id}/projects`
+		return this.get<PaginatedProjects>(url)
 	}
 
-	public async getPersonOrganisations(
-		id: string
-	): Promise<PaginatedOrganisations> {
-		const url = `${this.baseUrl}/persons/${id}/organisations`
-		return this.get<PaginatedOrganisations>(url)
+	public async getOrganisationsPersons(id: string): Promise<PaginatedPersons> {
+		const url = `${this.baseUrl}/organisations/${id}/persons`
+		return this.get<PaginatedPersons>(url)
 	}
 }

@@ -1,9 +1,8 @@
-import { Base } from "../base"
-import { GenericFilterParams } from "../generic.interfaces"
 import {
 	Collaboration,
 	Dissemination,
 	FurtherFunding,
+	GenericFilterParams,
 	ImpactSummary,
 	IntellectualProperty,
 	KeyFinding,
@@ -23,7 +22,8 @@ import {
 	Publication,
 	ResearchMaterial,
 	SpinOut,
-} from "./interfaces"
+} from ".."
+import { Base } from "../base"
 
 export class Outcomes extends Base {
 	public async getOutcomes(
