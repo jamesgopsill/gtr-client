@@ -48,7 +48,6 @@ test("GET project funds", async () => {
 test("GET organisation funds", async () => {
 	try {
 		const v = await client.getOrganisationFunds(organisationID)
-		console.log(v)
 		expect(typeof v).toBe("object")
 	} catch (e) {
 		if (e instanceof ResponseError) {

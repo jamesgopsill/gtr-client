@@ -61,8 +61,8 @@ The docs have been produced using [TypeDoc](https://typedoc.org/) and can be acc
 | 0.2.0 | `/funds` implemented. | ✔ |
 | 0.3.0 | `/organisations` implemented. | ✔ |
 | 0.4.0 | `/outcomes` implemented. | ✔ |
-| 0.5.0 | `/persons` implemented. | |
-| 0.6.0 | `/projects` implemented. | |
+| 0.5.0 | `/persons` implemented. | ✔ |
+| 0.6.0 | `/projects` implemented. | ✔ |
 | 0.7.0 | Custom Filtering Param Interfaces | |
 | 1.0.0 | V1. Spec complete | |
 

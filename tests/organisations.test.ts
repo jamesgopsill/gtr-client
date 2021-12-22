@@ -8,7 +8,6 @@ const organisationID = "4A348A76-B2D0-4DDD-804A-CE735A6D3798"
 test("GET organisations", async () => {
 	try {
 		const v = await client.getOrganisations()
-		console.log(v.organisation[0])
 		expect(typeof v).toBe("object")
 	} catch (e) {
 		if (e instanceof ResponseError) {

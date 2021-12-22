@@ -15,5 +15,9 @@ class Persons extends base_1.Base {
         const url = `${this.baseUrl}/persons/${id}/organisations`;
         return this.get(url);
     }
+    async getPersonProjects(id) {
+        const url = `${this.baseUrl}/persons/${id}/projects`;
+        return this.get(url);
+    }
 }
 exports.Persons = Persons;
