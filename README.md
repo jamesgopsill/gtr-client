@@ -1,4 +1,4 @@
-# A TS client for the Gateway to Research API
+# A TS client for the GtR API
 
 This client is a fully-typed [typescript](https://www.typescriptlang.org/) client for the [UKRI's Gateway to Research API](https://gtr.ukri.org/). It runs both on server (Node.js) and client-side (Browser) javascript.
 
