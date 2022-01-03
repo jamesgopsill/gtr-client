@@ -30,3 +30,13 @@ export interface Link {
 export interface Links {
     link: Link[];
 }
+export interface Address {
+    id: string;
+    created: Date;
+    line1: string;
+    line2: string;
+    postCode: string;
+    region: string;
+    country: string;
+    type: string;
+}

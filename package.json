@@ -1,6 +1,6 @@
 {
   "name": "gtr-client",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A Typescript Client for the gateway to research (gtr) UKRI API.",
   "keywords": [
     "Gateway to Research",
@@ -18,7 +18,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "jest ./tests --testTimeout=15000",
     "build": "tsc",
     "docs": "typedoc",
     "format": "prettier --write src/**/* && prettier --write tests/**/*",

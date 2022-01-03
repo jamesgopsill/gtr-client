@@ -1,4 +1,14 @@
 import { fetch } from "cross-fetch"
+import {
+	GtrAssociatedObjects,
+	GtrAssociatedObjectsFiltersType,
+	GtrAssociatedObjectsResponseType,
+	GtrObject,
+	GtrObjectResponseType,
+	GtrObjects,
+	GtrObjectsFiltersType,
+	GtrObjectsResponseType,
+} from "."
 
 /**
  * ResponseError to retun any response errors to the user.
@@ -52,6 +62,38 @@ export abstract class Base {
 			}
 			throw new ResponseError(r)
 		})
+	}
+
+	/**
+	 *
+	 * @param request Getting an object from the GtR API. Use the GetObject interface to identify the object you wish to retrieve. The function will dynamically update with the expected response type from the get call.
+	 * @param id
+	 * @returns
+	 */
+	public async getObject<T extends GtrObject>(
+		request: T,
+		id: string
+	): Promise<GtrObjectResponseType<T>> {
+		const url = `${this.baseUrl}/${request}/${id}`
+		return this.get<GtrObjectResponseType<T>>(url)
+	}
+
+	public async getObjects<T extends GtrObjects>(
+		request: T,
+		filters?: GtrObjectsFiltersType<T>
+	): Promise<GtrObjectsResponseType<T>> {
+		const url = `${this.baseUrl}/${request}`
+		return this.get<GtrObjectsResponseType<T>>(url, filters)
+	}
+
+	public async getAssociatedObjects<T extends GtrAssociatedObjects>(
+		request: T,
+		id: string,
+		filters?: GtrAssociatedObjectsFiltersType<T>
+	): Promise<GtrAssociatedObjectsResponseType<T>> {
+		let url = `${this.baseUrl}/${request}`
+		url = url.replace("_", id)
+		return this.get<GtrAssociatedObjectsResponseType<T>>(url, filters)
 	}
 
 	/**

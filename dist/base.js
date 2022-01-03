@@ -50,6 +50,25 @@ class Base {
         });
     }
     /**
+     *
+     * @param request Getting an object from the GtR API. Use the GetObject interface to identify the object you wish to retrieve. The function will dynamically update with the expected response type from the get call.
+     * @param id
+     * @returns
+     */
+    async getObject(request, id) {
+        const url = `${this.baseUrl}/${request}/${id}`;
+        return this.get(url);
+    }
+    async getObjects(request, filters) {
+        const url = `${this.baseUrl}/${request}`;
+        return this.get(url, filters);
+    }
+    async getAssociatedObjects(request, id, filters) {
+        let url = `${this.baseUrl}/${request}`;
+        url = url.replace("_", id);
+        return this.get(url, filters);
+    }
+    /**
      * This function recrusively scans through an object to detect numeric dates and converts them to Date objects for the end-user to handle.
      * @param obj The response json object to recursively scan through.
      */

@@ -22,14 +22,14 @@ yarn add https://github.com/JamesGopsill/gtr-client
 You can then use in your code via by importing
 
 ```typescript
-import { GtrClient } from "gtr-client"
+import { GtrClient, GtrObjects, ResponseError } from "gtr-client"
 
 // Create a new client.
 const client = new GtrClient()
 
 // Retrieve the available funds from the UKRI
 try {
-	const funds = await client.getFunds()
+	const funds = await client.getObjects(GtrObjects.FUNDS)
 	console.log(funds)
 } catch (e) {
 	// Custom response error class
@@ -37,16 +37,6 @@ try {
 		console.log(e.response.statusText)
 	}
 }
-
-// OR
-
-client.getFunds().then((funds) => {
-	console.log(funds)
-}).catch((e) => {
-	if (e instanceof ResponseError) {
-		console.log(e.response.statusText)
-	}
-})
 ```
 
 ## Docs
@@ -63,8 +53,9 @@ The docs have been produced using [TypeDoc](https://typedoc.org/) and can be acc
 | 0.4.0 | `/outcomes` implemented. | ✔ |
 | 0.5.0 | `/persons` implemented. | ✔ |
 | 0.6.0 | `/projects` implemented. | ✔ |
-| 0.7.0 | Custom Filtering Param Interfaces | |
-| 1.0.0 | V1. Spec complete | |
+| 0.7.0 | Simplified client using interface conditionals. | ✔ |
+| 0.8.0 | Custom Filtering Param Interfaces | |
+| 1.0.0 | Spec complete | |
 
 ## Contributing
 
