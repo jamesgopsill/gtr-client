@@ -1,18 +1,13 @@
-import { GtrClient, GtrObjects, ResponseError } from "../src"
+import { GtrClient, ResponseError } from "../src"
+import { getObjectsMethods } from "../src/methods"
 
 const client = new GtrClient(true)
 
-const requests = [
-	GtrObjects.PEOPLE,
-	GtrObjects.PROJECTS,
-	GtrObjects.ORGANISATIONS,
-	GtrObjects.FUNDS,
-]
-
 test("GET objects", async () => {
 	try {
-		for (const request of requests) {
-			const v = await client.getObjects(request)
+		for (const method of getObjectsMethods) {
+			//@ts-ignore: because we are programmatically iterating through the methods.
+			const v = await client[method.name]()
 			expect(typeof v).toBe("object")
 		}
 	} catch (e) {

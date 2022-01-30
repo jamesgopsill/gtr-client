@@ -1,22 +1,90 @@
-import { Address, Links } from ".";
-export declare enum GtrObject {
-    PERSON = "persons",
-    PROJECT = "projects",
-    ORGANISATION = "organisations",
-    FUND = "funds",
-    KEYFINDING = "outcomes/keyfindings",
-    IMPACTSUMMARY = "outcomes/impactsummaries",
-    PUBLICATION = "outcomes/publications",
-    COLLABORATION = "outcomes/collaborations",
-    INTELLECTUAL_PROPERTY = "outcomes/intellectualproperties",
-    POLICY_INFLUENCE = "outcomes/policyinfluences",
-    PRODUCT = "outcomes/products",
-    RESEARCH_MATERIAL = "outcomes/researchmaterials",
-    SPIN_OUT = "outcomes/spinouts",
-    FURTHER_FUNDING = "outcomes/furtherfundings",
-    DISSEMINATION = "outcomes/disseminations"
+export interface FilterParamsBase {
+    /** Query term, q=search_term */
+    q?: string;
+    /** Page of result set, starting at 1, p=1 */
+    p?: number;
+    /** Size of page between 10 and 100, defaulted to s=20 */
+    s?: number;
+    /** Sort order A (ascending) or D (descending), so=A */
+    so?: "A" | "D";
 }
-export declare type GtrObjectResponseType<T> = T extends "persons" ? Person : T extends "projects" ? Project : T extends "organisations" ? Organisation : T extends "funds" ? Fund : T extends "outcomes/keyfindings" ? KeyFinding : T extends "outcomes/impactsummaries" ? ImpactSummary : T extends "outcomes/publications" ? Publication : T extends "outcomes/collaborations" ? Collaboration : T extends "outcomes/intellectualproperties" ? IntellectualProperty : T extends "outcomes/policyinfluences" ? PolicyInfluence : T extends "outcomes/products" ? Product : T extends "outcomes/researchmaterials" ? ResearchMaterial : T extends "outcomes/spinouts" ? SpinOut : T extends "outcomes/furtherfundings" ? FurtherFunding : T extends "outcomes/disseminations" ? Dissemination : never;
+export interface GenericFilterParams extends FilterParamsBase {
+    /** Search fields */
+    f?: string;
+    /** Sort fields */
+    sf?: string;
+}
+export interface Paginated {
+    page: number;
+    size: number;
+    totalPages: number;
+    totalSize: number;
+}
+export interface Link {
+    href: string;
+    rel: string;
+    start: Date;
+    end: Date;
+    otherAttributes: any;
+}
+export interface Links {
+    link: Link[];
+}
+export interface Address {
+    id: string;
+    created: Date;
+    line1: string;
+    line2: string;
+    postCode: string;
+    region: string;
+    country: string;
+    type: string;
+}
+export interface PaginatedPersons extends Paginated {
+    person: Person[];
+}
+export interface PaginatedProjects extends Paginated {
+    project: Project[];
+}
+export interface PaginatedOrganisations extends Paginated {
+    organisation: Organisation[];
+}
+export interface PaginatedFunds extends Paginated {
+    fund: Fund[];
+}
+export interface PaginatedKeyFindings extends Paginated {
+    keyFinding: KeyFinding[];
+}
+export interface PaginatedImpactSummaries extends Paginated {
+    impactSummary: ImpactSummary[];
+}
+export interface PaginatedPublications extends Paginated {
+    publication: Publication[];
+}
+export interface PaginatedCollaborations extends Paginated {
+    collaboration: Collaboration[];
+}
+export interface PaginatedIntellectualProperties extends Paginated {
+    intellectualProperty: IntellectualProperty[];
+}
+export interface PaginatedPolicyInfluences extends Paginated {
+    policyInfluence: PolicyInfluence[];
+}
+export interface PaginatedProducts extends Paginated {
+    product: Product[];
+}
+export interface PaginatedResearchMaterials extends Paginated {
+    researchMaterial: ResearchMaterial[];
+}
+export interface PaginatedFurtherFunding extends Paginated {
+    furtherFunding: FurtherFunding[];
+}
+export interface PaginatedSpinOuts extends Paginated {
+    spinOut: SpinOut[];
+}
+export interface PaginatedDissemination extends Paginated {
+    dissemination: Dissemination[];
+}
 export interface Person {
     links: Links[];
     id: string;
