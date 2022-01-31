@@ -27,7 +27,7 @@ import { GtrClient, ResponseError } from "gtr-client"
 // Create a new client.
 const client = new GtrClient()
 
-// Retrieve the available funds from the UKRI
+// Retrieve the available projects from the UKRI
 try {
 	const projects = await client.getProjects()
 	console.log(projects)

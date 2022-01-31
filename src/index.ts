@@ -112,6 +112,7 @@ export interface GtrClient {
 	getProjects: () => Promise<interfaces.PaginatedProjects>
 	getOrganisations: () => Promise<interfaces.PaginatedOrganisations>
 	getFunds: () => Promise<interfaces.PaginatedFunds>
+	getOutcomes: () => Promise<interfaces.PaginatedOutcomes>
 	getKeyFindings: () => Promise<interfaces.PaginatedKeyFindings>
 	getImpactSummaries: () => Promise<interfaces.PaginatedImpactSummaries>
 	getPublications: () => Promise<interfaces.PaginatedPublications>
@@ -142,5 +143,33 @@ export interface GtrClient {
 	//
 	getPersonProjects: (id: string) => Promise<interfaces.PaginatedProjects>
 	getPersonOrganisations: (id: string) => Promise<interfaces.PaginatedProjects>
-	// TODO: complete
+	getProjectFunds: (id: string) => Promise<interfaces.PaginatedFunds>
+	getProjectOrganisations: (
+		id: string
+	) => Promise<interfaces.PaginatedOrganisations>
+	getProjectPersons: (id: string) => Promise<interfaces.PaginatedPersons>
+	getProjectOutcomes: (id: string) => Promise<interfaces.Outcomes>
+	getProjectKeyFindings: (
+		id: string
+	) => Promise<interfaces.PaginatedKeyFindings>
+	getProjectImpactSummaries: (
+		id: string
+	) => Promise<interfaces.PaginatedImpactSummaries>
+	getProjectPublications: (
+		id: string
+	) => Promise<interfaces.PaginatedPublications>
+	getProjectCollaborations: (
+		id: string
+	) => Promise<interfaces.PaginatedCollaborations>
+	getProjectIntellectualProperties: (
+		id: string
+	) => Promise<interfaces.PaginatedIntellectualProperties>
+	getProjectProducts: (id: string) => Promise<interfaces.PaginatedProducts>
+	getProjectResearchMaterials: (
+		id: string
+	) => Promise<interfaces.PaginatedResearchMaterials>
+	getProjectSpinOuts: (id: string) => Promise<interfaces.PaginatedSpinOuts>
+	getProjectDisseminations: (
+		id: string
+	) => Promise<interfaces.PaginatedDissemination>
 }

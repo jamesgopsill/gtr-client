@@ -62,6 +62,27 @@ export interface PaginatedFunds extends Paginated {
 	fund: Fund[]
 }
 
+export interface Outcomes {
+	artisticAndCreativeProduct: any[]
+	collaboration: Collaboration[]
+	dissemination: Dissemination[]
+	exploitation: any[]
+	furtherFunding: Fund[]
+	impactSummary: ImpactSummary[]
+	intellectualProperty: IntellectualProperty[]
+	keyFinding: KeyFinding[]
+	policyInfluence: PolicyInfluence[]
+	product: Product[]
+	researchDatabaseAndModel: any[]
+	researchMaterial: any[]
+	softwareAndTechnicalProduct: any[]
+	spinOut: SpinOut[]
+	otherResearchItem: any[]
+	publication: Publication[]
+}
+
+export interface PaginatedOutcomes extends Paginated, Outcomes {}
+
 export interface PaginatedKeyFindings extends Paginated {
 	keyFinding: KeyFinding[]
 }

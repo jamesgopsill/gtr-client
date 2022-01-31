@@ -16,6 +16,10 @@ export const getObjectsMethods = [
 		path: "funds",
 	},
 	{
+		name: "getOutcomes",
+		path: "outcomes",
+	},
+	{
 		name: "getKeyFindings",
 		path: "outcomes/keyfindings",
 	},
@@ -132,5 +136,57 @@ export const getAssociatedObjectsMethods = [
 	{
 		name: "getPersonOrganisations",
 		path: "persons/:id/organisations",
+	},
+	{
+		name: "getProjectFunds",
+		path: "project/:id/funds",
+	},
+	{
+		name: "getProjectOrganisations",
+		path: "project/:id/organisations",
+	},
+	{
+		name: "getProjectPersons",
+		path: "project/:id/persons",
+	},
+	{
+		name: "getProjectOutcomes",
+		path: "project/:id/outcomes",
+	},
+	{
+		name: "getProjectKeyFindings",
+		path: "project/:id/outcomes/keyfindings",
+	},
+	{
+		name: "getProjectImpactSummaries",
+		path: "project/:id/outcomes/impactsummaries",
+	},
+	{
+		name: "getProjectPublications",
+		path: "project/:id/outcomes/publications",
+	},
+	{
+		name: "getProjectCollaborations",
+		path: "project/:id/outcomes/collaborations",
+	},
+	{
+		name: "getProjectIntellectualProperties",
+		path: "project/:id/outcomes/intellectualproperties",
+	},
+	{
+		name: "getProjectProducts",
+		path: "project/:id/outcomes/products",
+	},
+	{
+		name: "getProjectResearchMaterials",
+		path: "project/:id/outcomes/researchmaterials",
+	},
+	{
+		name: "getProjectSpinOuts",
+		path: "project/:id/outcomes/spinouts",
+	},
+	{
+		name: "getProjectDisseminations",
+		path: "project/:id/outcomes/disseminations",
 	},
 ]
