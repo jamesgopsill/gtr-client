@@ -1,40 +1,62 @@
-import { GtrAssociatedObjects, GtrAssociatedObjectsFiltersType, GtrAssociatedObjectsResponseType, GtrObject, GtrObjectResponseType, GtrObjects, GtrObjectsFiltersType, GtrObjectsResponseType } from ".";
-export * from "./generic.interfaces";
-export * from "./get-associated-objects.interfaces";
-export * from "./get-object.interfaces";
-export * from "./get-objects.interfaces";
-/**
- * ResponseError to retun any response errors to the user.
- */
+import * as interfaces from "./interfaces";
+export * from "./interfaces";
 export declare class ResponseError extends Error {
     response: Response;
     constructor(response: Response);
 }
-/**
- * The GtrClient.
- */
 export declare class GtrClient {
     protected baseUrl: string;
     debug: boolean;
     constructor(debug?: boolean);
-    /**
-     * An internal get request function.
-     * @param url The URL for the get request.
-     * @param params The parameters to be sent along with the get request.
-     */
-    protected get<Type>(url: string, params?: {}): Promise<Type>;
-    /**
-     *
-     * @param request Getting an object from the GtR API. Use the GetObject interface to identify the object you wish to retrieve. The function will dynamically update with the expected response type from the get call.
-     * @param id
-     * @returns
-     */
-    getObject<T extends GtrObject>(request: T, id: string): Promise<GtrObjectResponseType<T>>;
-    getObjects<T extends GtrObjects>(request: T, filters?: GtrObjectsFiltersType<T>): Promise<GtrObjectsResponseType<T>>;
-    getAssociatedObjects<T extends GtrAssociatedObjects>(request: T, id: string, filters?: GtrAssociatedObjectsFiltersType<T>): Promise<GtrAssociatedObjectsResponseType<T>>;
-    /**
-     * This function recrusively scans through an object to detect numeric dates and converts them to Date objects for the end-user to handle.
-     * @param obj The response json object to recursively scan through.
-     */
+    protected get(url: string, params?: {}): Promise<any>;
     protected recursiveProcessObjectDates(obj: any): void;
+    protected getObject(id: string, path: string): Promise<any>;
+    protected getObjects(path: string): Promise<any>;
+    protected getAssociatedObjects(id: string, path: string): Promise<any>;
+}
+export interface GtrClient {
+    getPeople: () => Promise<interfaces.PaginatedPersons>;
+    getProjects: () => Promise<interfaces.PaginatedProjects>;
+    getOrganisations: () => Promise<interfaces.PaginatedOrganisations>;
+    getFunds: () => Promise<interfaces.PaginatedFunds>;
+    getOutcomes: () => Promise<interfaces.PaginatedOutcomes>;
+    getKeyFindings: () => Promise<interfaces.PaginatedKeyFindings>;
+    getImpactSummaries: () => Promise<interfaces.PaginatedImpactSummaries>;
+    getPublications: () => Promise<interfaces.PaginatedPublications>;
+    getCollaborations: () => Promise<interfaces.PaginatedCollaborations>;
+    getIntellectualProperties: () => Promise<interfaces.PaginatedIntellectualProperties>;
+    getPolicyInfluences: () => Promise<interfaces.PaginatedPolicyInfluences>;
+    getProducts: () => Promise<interfaces.PaginatedProducts>;
+    getResearchMaterials: () => Promise<interfaces.PaginatedResearchMaterials>;
+    getSpinouts: () => Promise<interfaces.PaginatedSpinOuts>;
+    getFurtherFundings: () => Promise<interfaces.PaginatedFurtherFunding>;
+    getDisseminations: () => Promise<interfaces.PaginatedDissemination>;
+    getPerson: (id: string) => Promise<interfaces.Person>;
+    getOrganisation: (id: string) => Promise<interfaces.Organisation>;
+    getFund: (id: string) => Promise<interfaces.Fund>;
+    getKeyFinding: (id: string) => Promise<interfaces.KeyFinding>;
+    getImpactSummary: (id: string) => Promise<interfaces.ImpactSummary>;
+    getPublication: (id: string) => Promise<interfaces.Publication>;
+    getCollaboration: (id: string) => Promise<interfaces.Collaboration>;
+    getIntellectualProperty: (id: string) => Promise<interfaces.PolicyInfluence>;
+    getProduct: (id: string) => Promise<interfaces.Product>;
+    getResearchMaterial: (id: string) => Promise<interfaces.ResearchMaterial>;
+    getSpinOut: (id: string) => Promise<interfaces.SpinOut>;
+    getFurtherFunding: (id: string) => Promise<interfaces.FurtherFunding>;
+    getDissemination: (id: string) => Promise<interfaces.Dissemination>;
+    getPersonProjects: (id: string) => Promise<interfaces.PaginatedProjects>;
+    getPersonOrganisations: (id: string) => Promise<interfaces.PaginatedProjects>;
+    getProjectFunds: (id: string) => Promise<interfaces.PaginatedFunds>;
+    getProjectOrganisations: (id: string) => Promise<interfaces.PaginatedOrganisations>;
+    getProjectPersons: (id: string) => Promise<interfaces.PaginatedPersons>;
+    getProjectOutcomes: (id: string) => Promise<interfaces.Outcomes>;
+    getProjectKeyFindings: (id: string) => Promise<interfaces.PaginatedKeyFindings>;
+    getProjectImpactSummaries: (id: string) => Promise<interfaces.PaginatedImpactSummaries>;
+    getProjectPublications: (id: string) => Promise<interfaces.PaginatedPublications>;
+    getProjectCollaborations: (id: string) => Promise<interfaces.PaginatedCollaborations>;
+    getProjectIntellectualProperties: (id: string) => Promise<interfaces.PaginatedIntellectualProperties>;
+    getProjectProducts: (id: string) => Promise<interfaces.PaginatedProducts>;
+    getProjectResearchMaterials: (id: string) => Promise<interfaces.PaginatedResearchMaterials>;
+    getProjectSpinOuts: (id: string) => Promise<interfaces.PaginatedSpinOuts>;
+    getProjectDisseminations: (id: string) => Promise<interfaces.PaginatedDissemination>;
 }

@@ -12,13 +12,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GtrClient = exports.ResponseError = void 0;
 const cross_fetch_1 = require("cross-fetch");
-__exportStar(require("./generic.interfaces"), exports);
-__exportStar(require("./get-associated-objects.interfaces"), exports);
-__exportStar(require("./get-object.interfaces"), exports);
-__exportStar(require("./get-objects.interfaces"), exports);
-/**
- * ResponseError to retun any response errors to the user.
- */
+const methods_1 = require("./methods");
+__exportStar(require("./interfaces"), exports);
+// New error type to handle response errors.
 class ResponseError extends Error {
     constructor(response) {
         super("Check error.response for the response from the server.");
@@ -28,20 +24,28 @@ class ResponseError extends Error {
     }
 }
 exports.ResponseError = ResponseError;
-/**
- * The GtrClient.
- */
+// The CtrClient class to construct the API from
 class GtrClient {
     constructor(debug = false) {
         this.baseUrl = "https://gtr.ukri.org/gtr/api";
         this.debug = debug;
+        // Create the get objects methods
+        for (const method of methods_1.getObjectsMethods) {
+            //@ts-ignore: Not exactly sure why but it's something about the key value (ts(7053))
+            this[method.name] = () => {
+                return this.getObjects(method.path);
+            };
+        }
+        // Add the get object methods
+        for (const method of methods_1.getObjectMethods) {
+            //@ts-ignore
+            this[method.name] = (id) => {
+                return this.getObject(id, method.path);
+            };
+        }
     }
-    /**
-     * An internal get request function.
-     * @param url The URL for the get request.
-     * @param params The parameters to be sent along with the get request.
-     */
     async get(url, params = {}) {
+        // Add additional search params
         if (Object.keys(params).length !== 0) {
             url += "?" + new URLSearchParams(params).toString();
         }
@@ -63,32 +67,8 @@ class GtrClient {
             throw new ResponseError(r);
         });
     }
-    /**
-     *
-     * @param request Getting an object from the GtR API. Use the GetObject interface to identify the object you wish to retrieve. The function will dynamically update with the expected response type from the get call.
-     * @param id
-     * @returns
-     */
-    async getObject(request, id) {
-        const url = `${this.baseUrl}/${request}/${id}`;
-        return this.get(url);
-    }
-    async getObjects(request, filters) {
-        const url = `${this.baseUrl}/${request}`;
-        return this.get(url, filters);
-    }
-    async getAssociatedObjects(request, id, filters) {
-        let url = `${this.baseUrl}/${request}`;
-        url = url.replace("_", id);
-        return this.get(url, filters);
-    }
-    /**
-     * This function recrusively scans through an object to detect numeric dates and converts them to Date objects for the end-user to handle.
-     * @param obj The response json object to recursively scan through.
-     */
     recursiveProcessObjectDates(obj) {
         Object.keys(obj).forEach((key) => {
-            // console.log(key, typeof obj[key], Array.isArray(obj[key]))
             // If the object is a number and it has a length of 13 then consider it as a date
             if (typeof obj[key] == "number") {
                 if (obj[key].toString().length == 13) {
@@ -108,6 +88,19 @@ class GtrClient {
                 this.recursiveProcessObjectDates(obj[key]);
             }
         });
+    }
+    async getObject(id, path) {
+        const url = `${this.baseUrl}/${path}/${id}`;
+        return this.get(url);
+    }
+    async getObjects(path) {
+        const url = `${this.baseUrl}/${path}`;
+        return this.get(url);
+    }
+    async getAssociatedObjects(id, path) {
+        let url = `${this.baseUrl}/${path}`;
+        url = url.replace(":id", id);
+        return this.get(url);
     }
 }
 exports.GtrClient = GtrClient;
