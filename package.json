@@ -18,7 +18,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "test": "jest ./tests --testTimeout=15000",
+    "test": "jest --testTimeout=15000",
     "build": "tsc",
     "docs": "typedoc",
     "format": "prettier --write src/**/* && prettier --write tests/**/*",
