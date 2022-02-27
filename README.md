@@ -1,5 +1,14 @@
 # A TS client for the GtR API
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/JamesGopsill/gtr-client)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/JamesGopsill/gtr-client/client-tests?label=client-tests&logo=github&style=flat)
+![GitHub repo size](https://img.shields.io/github/repo-size/JamesGopsill/gtr-client)
+![GitHub](https://img.shields.io/github/license/JamesGopsill/gtr-client)
+
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/description/JamesGopsill/gtr-client)
+
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/JamesGopsill/gtr-client)
+
 This client is a fully-typed [typescript](https://www.typescriptlang.org/) client for the [UKRI's Gateway to Research API](https://gtr.ukri.org/). It runs both on server (Node.js) and client-side (Browser) javascript.
 
 ## Contents
@@ -13,7 +22,7 @@ This client is a fully-typed [typescript](https://www.typescriptlang.org/) clien
 
 ## Getting Started
 
-To install the package, use the following code. I am aiming to put it onto npm soon.
+To install the package, use the following code. I am aiming to put it on npm soon.
 
 ```
 yarn add https://github.com/JamesGopsill/gtr-client
@@ -31,10 +40,10 @@ const client = new GtrClient()
 try {
 	const projects = await client.getProjects()
 	console.log(projects)
-} catch (e) {
+} catch (err) {
 	// Custom response error class
-	if (e instanceof ResponseError) {
-		console.log(e.response.statusText)
+	if (err instanceof ResponseError) {
+		console.log(err.response.statusText)
 	}
 }
 ```
@@ -72,3 +81,4 @@ To donate and provide continued support, please go to **[TODO]**.
 - [Git AutoCLRF](https://tanutaran.medium.com/solving-git-lf-will-be-replaced-by-crlf-7ca84eb0aad4)
 - [API Client Template](https://github.com/ilyamkin/dev-to-js)
 - [Git CRLF LF issues](https://stackoverflow.com/questions/170961/whats-the-strategy-for-handling-crlf-carriage-return-line-feed-with-git)
+- [CLRF LF issue](https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important)
