@@ -20,6 +20,14 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamesgopsill/gtr-client"
+  },
+  "bugs": {
+    "url": "https://github.com/jamesgopsill/gtr-client/issues"
+  },
+  "homepage": "https://jamesgopsill.github.io/gtr-client",
   "scripts": {
     "test": "jest --testTimeout=15000",
     "build": "tsc",

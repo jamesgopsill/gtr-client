@@ -22,16 +22,16 @@ This client is a fully-typed [typescript](https://www.typescriptlang.org/) clien
 
 ## Getting Started
 
-To install the package, use the following code. I am aiming to put it on npm soon.
+To install the package, use the following code.
 
 ```
-yarn add https://github.com/JamesGopsill/gtr-client
+yarn add @jamesgopsill/gtr-client
 ```
 
 You can then use in your code via by importing
 
 ```typescript
-import { GtrClient, ResponseError } from "gtr-client"
+import { GtrClient, ResponseError } from "@jamesgopsill/gtr-client"
 
 // Create a new client.
 const client = new GtrClient()
