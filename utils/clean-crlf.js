@@ -4,12 +4,7 @@ const glob = require("glob")
 // https://futurestud.io/tutorials/node-js-string-replace-all-appearances
 const replacer = new RegExp("\r\n", "g")
 
-// Now go through and check EoL delimiter and set it to LF rather than CRLF
-glob("**/*", {
-	ignore: ["node_modules/**/*", "**/*.png"]
-}, (err, files) => {
-	//console.log(files)
-
+const checkAndConvertFiles = (files) => {
 	for (const f of files) {
 		if (fs.lstatSync(f).isDirectory()) {
 			continue
@@ -21,4 +16,17 @@ glob("**/*", {
 			fs.writeFileSync(f, content)
 		}
 	}
+}
+
+// Now go through and check EoL delimiter and set it to LF rather than CRLF
+glob("**/*", {
+	ignore: ["node_modules/**/*", "**/*.png", "**/*.jpeg", "**/*.jpg", ".git"]
+}, (err, files) => {
+	checkAndConvertFiles(files)
+})
+
+glob(".*", {
+	ignore: ["node_modules/**/*", "**/*.png", "**/*.jpeg", "**/*.jpg", ".git/**/*"]
+}, (err, files) => {
+	checkAndConvertFiles(files)
 })
