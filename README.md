@@ -73,7 +73,7 @@ We would love to have additional contributors to the project to help us maintain
 
 ## Support the Project
 
-To donate and provide continued support, please go to **[TODO]**.
+If you like this project, please consider sponsoring the developers so they can continue to maintain and improve the package.
 
 ## References
 
