@@ -9,7 +9,7 @@
 
 ![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/JamesGopsill/gtr-client)
 
-This client is a fully-typed [typescript](https://www.typescriptlang.org/) client for the [UKRI's Gateway to Research API](https://gtr.ukri.org/). It runs both on server (Node.js) and client-side (Browser) javascript.
+This client is a fully-typed [typescript](https://www.typescriptlang.org/) client for the [UKRI's Gateway to Research GtR-2 API](https://gtr.ukri.org/). It runs both on server (Node.js) and client-side (Browser) javascript.
 
 ## Contents
 
@@ -25,27 +25,30 @@ This client is a fully-typed [typescript](https://www.typescriptlang.org/) clien
 To install the package, use the following code.
 
 ```
-yarn add @jamesgopsill/gtr-client
+yarn add jamesgopsill/gtr-client
 ```
 
 You can then use in your code via by importing
 
 ```typescript
-import { GtrClient, ResponseError } from "@jamesgopsill/gtr-client"
+import { GtrClient, GetProjectsQuery, GetProjectsSearchFields, ResponseError } from "jamesgopsill/gtr-client"
 
-// Create a new client.
 const client = new GtrClient()
 
-// Retrieve the available projects from the UKRI
-try {
-	const projects = await client.getProjects()
-	console.log(projects)
-} catch (err) {
-	// Custom response error class
-	if (err instanceof ResponseError) {
-		console.log(err.response.statusText)
-	}
+const query: GetProjectsQuery = {
+	query: "manufacturing",
+	searchFields: [GetProjectsSearchFields.RESEARCH_TOPICS],
+	pageSize: 10
 }
+
+client.getProjects(query)
+	.then((res) => console.log(res))
+	.catch((err) => {
+		if (err instanceof ResponseError) {
+			console.log(err.response.status)
+			console.log(err.response.statusText)
+		}
+	})
 ```
 
 ## Docs

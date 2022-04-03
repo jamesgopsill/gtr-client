@@ -1,62 +1,79 @@
-import * as interfaces from "./interfaces";
+import * as i from "./interfaces";
 export * from "./interfaces";
-export declare class ResponseError extends Error {
-    response: Response;
-    constructor(response: Response);
-}
+export { ResponseError } from "./response-error";
 export declare class GtrClient {
     protected baseUrl: string;
     debug: boolean;
     constructor(debug?: boolean);
-    protected get(url: string, params?: {}): Promise<any>;
+    protected get(url: string, params?: {
+        [name: string]: any;
+    }): Promise<any>;
     protected recursiveProcessObjectDates(obj: any): void;
     protected getObject(id: string, path: string): Promise<any>;
-    protected getObjects(path: string): Promise<any>;
+    protected getObjects(path: string, params?: {}): Promise<any>;
     protected getAssociatedObjects(id: string, path: string): Promise<any>;
 }
 export interface GtrClient {
-    getPeople: () => Promise<interfaces.PaginatedPersons>;
-    getProjects: () => Promise<interfaces.PaginatedProjects>;
-    getOrganisations: () => Promise<interfaces.PaginatedOrganisations>;
-    getFunds: () => Promise<interfaces.PaginatedFunds>;
-    getOutcomes: () => Promise<interfaces.PaginatedOutcomes>;
-    getKeyFindings: () => Promise<interfaces.PaginatedKeyFindings>;
-    getImpactSummaries: () => Promise<interfaces.PaginatedImpactSummaries>;
-    getPublications: () => Promise<interfaces.PaginatedPublications>;
-    getCollaborations: () => Promise<interfaces.PaginatedCollaborations>;
-    getIntellectualProperties: () => Promise<interfaces.PaginatedIntellectualProperties>;
-    getPolicyInfluences: () => Promise<interfaces.PaginatedPolicyInfluences>;
-    getProducts: () => Promise<interfaces.PaginatedProducts>;
-    getResearchMaterials: () => Promise<interfaces.PaginatedResearchMaterials>;
-    getSpinouts: () => Promise<interfaces.PaginatedSpinOuts>;
-    getFurtherFundings: () => Promise<interfaces.PaginatedFurtherFunding>;
-    getDisseminations: () => Promise<interfaces.PaginatedDissemination>;
-    getPerson: (id: string) => Promise<interfaces.Person>;
-    getOrganisation: (id: string) => Promise<interfaces.Organisation>;
-    getFund: (id: string) => Promise<interfaces.Fund>;
-    getKeyFinding: (id: string) => Promise<interfaces.KeyFinding>;
-    getImpactSummary: (id: string) => Promise<interfaces.ImpactSummary>;
-    getPublication: (id: string) => Promise<interfaces.Publication>;
-    getCollaboration: (id: string) => Promise<interfaces.Collaboration>;
-    getIntellectualProperty: (id: string) => Promise<interfaces.PolicyInfluence>;
-    getProduct: (id: string) => Promise<interfaces.Product>;
-    getResearchMaterial: (id: string) => Promise<interfaces.ResearchMaterial>;
-    getSpinOut: (id: string) => Promise<interfaces.SpinOut>;
-    getFurtherFunding: (id: string) => Promise<interfaces.FurtherFunding>;
-    getDissemination: (id: string) => Promise<interfaces.Dissemination>;
-    getPersonProjects: (id: string) => Promise<interfaces.PaginatedProjects>;
-    getPersonOrganisations: (id: string) => Promise<interfaces.PaginatedProjects>;
-    getProjectFunds: (id: string) => Promise<interfaces.PaginatedFunds>;
-    getProjectOrganisations: (id: string) => Promise<interfaces.PaginatedOrganisations>;
-    getProjectPersons: (id: string) => Promise<interfaces.PaginatedPersons>;
-    getProjectOutcomes: (id: string) => Promise<interfaces.Outcomes>;
-    getProjectKeyFindings: (id: string) => Promise<interfaces.PaginatedKeyFindings>;
-    getProjectImpactSummaries: (id: string) => Promise<interfaces.PaginatedImpactSummaries>;
-    getProjectPublications: (id: string) => Promise<interfaces.PaginatedPublications>;
-    getProjectCollaborations: (id: string) => Promise<interfaces.PaginatedCollaborations>;
-    getProjectIntellectualProperties: (id: string) => Promise<interfaces.PaginatedIntellectualProperties>;
-    getProjectProducts: (id: string) => Promise<interfaces.PaginatedProducts>;
-    getProjectResearchMaterials: (id: string) => Promise<interfaces.PaginatedResearchMaterials>;
-    getProjectSpinOuts: (id: string) => Promise<interfaces.PaginatedSpinOuts>;
-    getProjectDisseminations: (id: string) => Promise<interfaces.PaginatedDissemination>;
+    /**
+     * Retrieves information about the people on the GtR database.
+     */
+    getPeople: (params?: i.GetPeopleQuery) => Promise<i.PaginatedPersons>;
+    /**
+     * Retrieve information about the projects on the GtR database.
+     */
+    getProjects: (params?: i.GetProjectsQuery) => Promise<i.PaginatedProjects>;
+    /**
+     * Retrieve information about the organisations on the GtR database.
+     */
+    getOrganisations: (params?: i.GetOrganisationsQuery) => Promise<i.PaginatedOrganisations>;
+    /**
+     * Retrieve information about the funds on the GtR database.
+     */
+    getFunds: (params?: i.GetFundsQuery) => Promise<i.PaginatedFunds>;
+    /**
+     * Retrieve information about the outcomes on the GtR database.
+     */
+    getOutcomes: (params?: i.GetOutcomesQuery) => Promise<i.PaginatedOutcomes>;
+    /**
+     * Retrieve information about the key findings on the GtR database.
+     */
+    getKeyFindings: (params?: i.GetKeyFindingsQuery) => Promise<i.PaginatedKeyFindings>;
+    getImpactSummaries: () => Promise<i.PaginatedImpactSummaries>;
+    getPublications: () => Promise<i.PaginatedPublications>;
+    getCollaborations: () => Promise<i.PaginatedCollaborations>;
+    getIntellectualProperties: () => Promise<i.PaginatedIntellectualProperties>;
+    getPolicyInfluences: () => Promise<i.PaginatedPolicyInfluences>;
+    getProducts: () => Promise<i.PaginatedProducts>;
+    getResearchMaterials: () => Promise<i.PaginatedResearchMaterials>;
+    getSpinouts: () => Promise<i.PaginatedSpinOuts>;
+    getFurtherFundings: () => Promise<i.PaginatedFurtherFunding>;
+    getDisseminations: () => Promise<i.PaginatedDissemination>;
+    getPerson: (id: string) => Promise<i.Person>;
+    getOrganisation: (id: string) => Promise<i.Organisation>;
+    getFund: (id: string) => Promise<i.Fund>;
+    getKeyFinding: (id: string) => Promise<i.KeyFinding>;
+    getImpactSummary: (id: string) => Promise<i.ImpactSummary>;
+    getPublication: (id: string) => Promise<i.Publication>;
+    getCollaboration: (id: string) => Promise<i.Collaboration>;
+    getIntellectualProperty: (id: string) => Promise<i.PolicyInfluence>;
+    getProduct: (id: string) => Promise<i.Product>;
+    getResearchMaterial: (id: string) => Promise<i.ResearchMaterial>;
+    getSpinOut: (id: string) => Promise<i.SpinOut>;
+    getFurtherFunding: (id: string) => Promise<i.FurtherFunding>;
+    getDissemination: (id: string) => Promise<i.Dissemination>;
+    getPersonProjects: (id: string) => Promise<i.PaginatedProjects>;
+    getPersonOrganisations: (id: string) => Promise<i.PaginatedProjects>;
+    getProjectFunds: (id: string) => Promise<i.PaginatedFunds>;
+    getProjectOrganisations: (id: string) => Promise<i.PaginatedOrganisations>;
+    getProjectPersons: (id: string) => Promise<i.PaginatedPersons>;
+    getProjectOutcomes: (id: string) => Promise<i.Outcomes>;
+    getProjectKeyFindings: (id: string) => Promise<i.PaginatedKeyFindings>;
+    getProjectImpactSummaries: (id: string) => Promise<i.PaginatedImpactSummaries>;
+    getProjectPublications: (id: string) => Promise<i.PaginatedPublications>;
+    getProjectCollaborations: (id: string) => Promise<i.PaginatedCollaborations>;
+    getProjectIntellectualProperties: (id: string) => Promise<i.PaginatedIntellectualProperties>;
+    getProjectProducts: (id: string) => Promise<i.PaginatedProducts>;
+    getProjectResearchMaterials: (id: string) => Promise<i.PaginatedResearchMaterials>;
+    getProjectSpinOuts: (id: string) => Promise<i.PaginatedSpinOuts>;
+    getProjectDisseminations: (id: string) => Promise<i.PaginatedDissemination>;
 }

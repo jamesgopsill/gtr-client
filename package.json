@@ -32,8 +32,8 @@
     "test": "jest --testTimeout=15000",
     "build": "tsc",
     "docs": "typedoc",
-    "format": "prettier --write src/**/* && prettier --write tests/**/*",
-    "pre-add": "yarn format && yarn docs && node utils/clean-dist.js && yarn tsc && node utils/clean-crlf.js"
+    "format": "prettier --write src/**/* && prettier --write tests/**/* && prettier --write examples/**/*",
+    "pre-add": "yarn format && yarn docs && node utils/clean-dist.mjs && yarn tsc && node utils/clean-crlf.mjs"
   }, 
   "dependencies": {
     "cross-fetch": "^3.1.4"
