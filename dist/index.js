@@ -13,17 +13,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GtrClient = exports.ResponseError = void 0;
 const cross_fetch_1 = require("cross-fetch");
 const methods_1 = require("./methods");
+const response_error_1 = require("./response-error");
 __exportStar(require("./interfaces"), exports);
-// New error type to handle response errors.
-class ResponseError extends Error {
-    constructor(response) {
-        super("Check error.response for the response from the server.");
-        this.name = "ResponseError";
-        this.message = "Check error.response for the response from the server.";
-        this.response = response;
-    }
-}
-exports.ResponseError = ResponseError;
+var response_error_2 = require("./response-error");
+Object.defineProperty(exports, "ResponseError", { enumerable: true, get: function () { return response_error_2.ResponseError; } });
 // The CtrClient class to construct the API from
 class GtrClient {
     constructor(debug = false) {
@@ -32,8 +25,8 @@ class GtrClient {
         // Create the get objects methods
         for (const method of methods_1.getObjectsMethods) {
             //@ts-ignore: Not exactly sure why but it's something about the key value (ts(7053))
-            this[method.name] = () => {
-                return this.getObjects(method.path);
+            this[method.name] = (params) => {
+                return this.getObjects(method.path, params);
             };
         }
         // Add the get object methods
@@ -45,26 +38,42 @@ class GtrClient {
         }
     }
     async get(url, params = {}) {
+        // Perform key conversion
+        let requestParams = {};
+        const keyConversions = {
+            query: "q",
+            page: "p",
+            pageSize: "s",
+            sort: "so",
+            searchFields: "f",
+            sortFields: "sf",
+        };
+        for (const [key, value] of Object.entries(keyConversions)) {
+            if (params[key]) {
+                requestParams[value] = params[key];
+            }
+        }
         // Add additional search params
         if (Object.keys(params).length !== 0) {
-            url += "?" + new URLSearchParams(params).toString();
+            url += "?" + new URLSearchParams(requestParams).toString();
         }
         if (this.debug)
-            console.log(url);
-        return (0, cross_fetch_1.fetch)(url, {
+            console.log(`|- Query: ${url}`);
+        const config = {
             method: "GET",
             mode: "cors",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/vnd.rcuk.gtr.json-v7",
             },
-        }).then(async (r) => {
+        };
+        return (0, cross_fetch_1.fetch)(url, config).then(async (r) => {
             if (r.ok) {
                 const json = await r.json();
                 this.recursiveProcessObjectDates(json);
                 return json;
             }
-            throw new ResponseError(r);
+            throw new response_error_1.ResponseError(r);
         });
     }
     recursiveProcessObjectDates(obj) {
@@ -93,9 +102,9 @@ class GtrClient {
         const url = `${this.baseUrl}/${path}/${id}`;
         return this.get(url);
     }
-    async getObjects(path) {
+    async getObjects(path, params = {}) {
         const url = `${this.baseUrl}/${path}`;
-        return this.get(url);
+        return this.get(url, params);
     }
     async getAssociatedObjects(id, path) {
         let url = `${this.baseUrl}/${path}`;

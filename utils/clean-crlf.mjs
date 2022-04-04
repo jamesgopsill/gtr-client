@@ -1,19 +1,19 @@
-const fs = require("fs")
-const glob = require("glob")
+import { lstatSync, readFileSync, writeFileSync } from "fs"
+import glob from "glob"
 
 // https://futurestud.io/tutorials/node-js-string-replace-all-appearances
 const replacer = new RegExp("\r\n", "g")
 
 const checkAndConvertFiles = (files) => {
 	for (const f of files) {
-		if (fs.lstatSync(f).isDirectory()) {
+		if (lstatSync(f).isDirectory()) {
 			continue
 		}
-		let content = fs.readFileSync(f).toString()
+		let content = readFileSync(f).toString()
 		if (content.includes("\r\n")) {
-			console.log("CRLF detected", f)
+			console.log(`${f} CRLF -> LF`)
 			content = content.replace(replacer, "\n")
-			fs.writeFileSync(f, content)
+			writeFileSync(f, content)
 		}
 	}
 }
@@ -30,3 +30,4 @@ glob(".*", {
 }, (err, files) => {
 	checkAndConvertFiles(files)
 })
+
