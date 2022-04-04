@@ -1,6 +1,6 @@
 {
   "name": "@jamesgopsill/gtr-client",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A Typescript Client for the gateway to research (gtr) UKRI API.",
   "keywords": [
     "Gateway to Research",

@@ -67,7 +67,7 @@ The docs have been produced using [TypeDoc](https://typedoc.org/) and can be acc
 | 0.6.0 | `/projects` implemented. | ✔ |
 | 0.7.0 | Simplified client using interface conditionals. | ✔ |
 | 0.8.0 | Refactored again to use programmatically defined functions. | ✔ |
-| 0.9.0 | Custom Filtering Param Interfaces | |
+| 0.9.0 | Custom Filtering Param Interfaces | ✔ |
 | 1.0.0 | Spec complete | |
 
 ## Contributing

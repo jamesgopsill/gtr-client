@@ -38,16 +38,19 @@ export interface GtrClient {
      * Retrieve information about the key findings on the GtR database.
      */
     getKeyFindings: (params?: i.GetKeyFindingsQuery) => Promise<i.PaginatedKeyFindings>;
-    getImpactSummaries: () => Promise<i.PaginatedImpactSummaries>;
-    getPublications: () => Promise<i.PaginatedPublications>;
-    getCollaborations: () => Promise<i.PaginatedCollaborations>;
-    getIntellectualProperties: () => Promise<i.PaginatedIntellectualProperties>;
-    getPolicyInfluences: () => Promise<i.PaginatedPolicyInfluences>;
-    getProducts: () => Promise<i.PaginatedProducts>;
-    getResearchMaterials: () => Promise<i.PaginatedResearchMaterials>;
-    getSpinouts: () => Promise<i.PaginatedSpinOuts>;
-    getFurtherFundings: () => Promise<i.PaginatedFurtherFunding>;
-    getDisseminations: () => Promise<i.PaginatedDissemination>;
+    /**
+     * Retrieve information about the impact summaries on the GtR database.
+     */
+    getImpactSummaries: (params?: i.GetImpactSummariesQuery) => Promise<i.PaginatedImpactSummaries>;
+    getPublications: (params?: i.GetPublicationsQuery) => Promise<i.PaginatedPublications>;
+    getCollaborations: (params?: i.GetCollaborationsQuery) => Promise<i.PaginatedCollaborations>;
+    getIntellectualProperties: (params?: i.GetIntellectualPropertiesQuery) => Promise<i.PaginatedIntellectualProperties>;
+    getPolicyInfluences: (params?: i.GetPolicyInfluencesQuery) => Promise<i.PaginatedPolicyInfluences>;
+    getProducts: (params?: i.GetProductsQuery) => Promise<i.PaginatedProducts>;
+    getResearchMaterials: (params?: i.GetResearchMaterialsQuery) => Promise<i.PaginatedResearchMaterials>;
+    getSpinouts: (params?: i.GetSpinoutsQuery) => Promise<i.PaginatedSpinOuts>;
+    getFurtherFundings: (params?: i.GetFurtherFundingsQuery) => Promise<i.PaginatedFurtherFunding>;
+    getDisseminations: (params?: i.GetDisseminationsQuery) => Promise<i.PaginatedDissemination>;
     getPerson: (id: string) => Promise<i.Person>;
     getOrganisation: (id: string) => Promise<i.Organisation>;
     getFund: (id: string) => Promise<i.Fund>;
