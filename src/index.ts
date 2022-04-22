@@ -1,5 +1,5 @@
 import { fetch } from "cross-fetch"
-import * as i from "./interfaces"
+import type * as i from "./interfaces"
 import { getObjectMethods, getObjectsMethods } from "./methods"
 import { ResponseError } from "./response-error"
 
@@ -123,65 +123,65 @@ export interface GtrClient {
 	/**
 	 * Retrieves information about the people on the GtR database.
 	 */
-	getPeople: (params?: i.GetPeopleQuery) => Promise<i.PaginatedPersons>
+	getPeople: (params?: i.PeopleQuery) => Promise<i.PaginatedPersons>
 
 	/**
 	 * Retrieve information about the projects on the GtR database.
 	 */
-	getProjects: (params?: i.GetProjectsQuery) => Promise<i.PaginatedProjects>
+	getProjects: (params?: i.ProjectsQuery) => Promise<i.PaginatedProjects>
 
 	/**
 	 * Retrieve information about the organisations on the GtR database.
 	 */
 	getOrganisations: (
-		params?: i.GetOrganisationsQuery
+		params?: i.OrganisationsQuery
 	) => Promise<i.PaginatedOrganisations>
 
 	/**
 	 * Retrieve information about the funds on the GtR database.
 	 */
-	getFunds: (params?: i.GetFundsQuery) => Promise<i.PaginatedFunds>
+	getFunds: (params?: i.FundsQuery) => Promise<i.PaginatedFunds>
 
 	/**
 	 * Retrieve information about the outcomes on the GtR database.
 	 */
-	getOutcomes: (params?: i.GetOutcomesQuery) => Promise<i.PaginatedOutcomes>
+	getOutcomes: (params?: i.OutcomesQuery) => Promise<i.PaginatedOutcomes>
 
 	/**
 	 * Retrieve information about the key findings on the GtR database.
 	 */
 	getKeyFindings: (
-		params?: i.GetKeyFindingsQuery
+		params?: i.KeyFindingsQuery
 	) => Promise<i.PaginatedKeyFindings>
 
 	/**
 	 * Retrieve information about the impact summaries on the GtR database.
 	 */
 	getImpactSummaries: (
-		params?: i.GetImpactSummariesQuery
+		params?: i.ImpactSummariesQuery
 	) => Promise<i.PaginatedImpactSummaries>
 	getPublications: (
-		params?: i.GetPublicationsQuery
+		params?: i.PublicationsQuery
 	) => Promise<i.PaginatedPublications>
 	getCollaborations: (
-		params?: i.GetCollaborationsQuery
+		params?: i.CollaborationsQuery
 	) => Promise<i.PaginatedCollaborations>
 	getIntellectualProperties: (
-		params?: i.GetIntellectualPropertiesQuery
+		params?: i.IntellectualPropertiesQuery
 	) => Promise<i.PaginatedIntellectualProperties>
 	getPolicyInfluences: (
-		params?: i.GetPolicyInfluencesQuery
+		params?: i.PolicyInfluencesQuery
 	) => Promise<i.PaginatedPolicyInfluences>
-	getProducts: (params?: i.GetProductsQuery) => Promise<i.PaginatedProducts>
+	getProducts: (params?: i.ProductsQuery) => Promise<i.PaginatedProducts>
 	getResearchMaterials: (
-		params?: i.GetResearchMaterialsQuery
+		params?: i.ResearchMaterialsQuery
 	) => Promise<i.PaginatedResearchMaterials>
-	getSpinouts: (params?: i.GetSpinoutsQuery) => Promise<i.PaginatedSpinOuts>
+	getSpinouts: (params?: i.SpinoutsQuery) => Promise<i.PaginatedSpinOuts>
 	getFurtherFundings: (
-		params?: i.GetFurtherFundingsQuery
+		params?: i.FurtherFundingsQuery
 	) => Promise<i.PaginatedFurtherFunding>
 	getDisseminations: (
-		params?: i.GetDisseminationsQuery
+		params?: i.DisseminationsQuery
 	) => Promise<i.PaginatedDissemination>
 
 	// getObject Methods

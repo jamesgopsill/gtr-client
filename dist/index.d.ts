@@ -1,4 +1,4 @@
-import * as i from "./interfaces";
+import type * as i from "./interfaces";
 export * from "./interfaces";
 export { ResponseError } from "./response-error";
 export declare class GtrClient {
@@ -17,40 +17,40 @@ export interface GtrClient {
     /**
      * Retrieves information about the people on the GtR database.
      */
-    getPeople: (params?: i.GetPeopleQuery) => Promise<i.PaginatedPersons>;
+    getPeople: (params?: i.PeopleQuery) => Promise<i.PaginatedPersons>;
     /**
      * Retrieve information about the projects on the GtR database.
      */
-    getProjects: (params?: i.GetProjectsQuery) => Promise<i.PaginatedProjects>;
+    getProjects: (params?: i.ProjectsQuery) => Promise<i.PaginatedProjects>;
     /**
      * Retrieve information about the organisations on the GtR database.
      */
-    getOrganisations: (params?: i.GetOrganisationsQuery) => Promise<i.PaginatedOrganisations>;
+    getOrganisations: (params?: i.OrganisationsQuery) => Promise<i.PaginatedOrganisations>;
     /**
      * Retrieve information about the funds on the GtR database.
      */
-    getFunds: (params?: i.GetFundsQuery) => Promise<i.PaginatedFunds>;
+    getFunds: (params?: i.FundsQuery) => Promise<i.PaginatedFunds>;
     /**
      * Retrieve information about the outcomes on the GtR database.
      */
-    getOutcomes: (params?: i.GetOutcomesQuery) => Promise<i.PaginatedOutcomes>;
+    getOutcomes: (params?: i.OutcomesQuery) => Promise<i.PaginatedOutcomes>;
     /**
      * Retrieve information about the key findings on the GtR database.
      */
-    getKeyFindings: (params?: i.GetKeyFindingsQuery) => Promise<i.PaginatedKeyFindings>;
+    getKeyFindings: (params?: i.KeyFindingsQuery) => Promise<i.PaginatedKeyFindings>;
     /**
      * Retrieve information about the impact summaries on the GtR database.
      */
-    getImpactSummaries: (params?: i.GetImpactSummariesQuery) => Promise<i.PaginatedImpactSummaries>;
-    getPublications: (params?: i.GetPublicationsQuery) => Promise<i.PaginatedPublications>;
-    getCollaborations: (params?: i.GetCollaborationsQuery) => Promise<i.PaginatedCollaborations>;
-    getIntellectualProperties: (params?: i.GetIntellectualPropertiesQuery) => Promise<i.PaginatedIntellectualProperties>;
-    getPolicyInfluences: (params?: i.GetPolicyInfluencesQuery) => Promise<i.PaginatedPolicyInfluences>;
-    getProducts: (params?: i.GetProductsQuery) => Promise<i.PaginatedProducts>;
-    getResearchMaterials: (params?: i.GetResearchMaterialsQuery) => Promise<i.PaginatedResearchMaterials>;
-    getSpinouts: (params?: i.GetSpinoutsQuery) => Promise<i.PaginatedSpinOuts>;
-    getFurtherFundings: (params?: i.GetFurtherFundingsQuery) => Promise<i.PaginatedFurtherFunding>;
-    getDisseminations: (params?: i.GetDisseminationsQuery) => Promise<i.PaginatedDissemination>;
+    getImpactSummaries: (params?: i.ImpactSummariesQuery) => Promise<i.PaginatedImpactSummaries>;
+    getPublications: (params?: i.PublicationsQuery) => Promise<i.PaginatedPublications>;
+    getCollaborations: (params?: i.CollaborationsQuery) => Promise<i.PaginatedCollaborations>;
+    getIntellectualProperties: (params?: i.IntellectualPropertiesQuery) => Promise<i.PaginatedIntellectualProperties>;
+    getPolicyInfluences: (params?: i.PolicyInfluencesQuery) => Promise<i.PaginatedPolicyInfluences>;
+    getProducts: (params?: i.ProductsQuery) => Promise<i.PaginatedProducts>;
+    getResearchMaterials: (params?: i.ResearchMaterialsQuery) => Promise<i.PaginatedResearchMaterials>;
+    getSpinouts: (params?: i.SpinoutsQuery) => Promise<i.PaginatedSpinOuts>;
+    getFurtherFundings: (params?: i.FurtherFundingsQuery) => Promise<i.PaginatedFurtherFunding>;
+    getDisseminations: (params?: i.DisseminationsQuery) => Promise<i.PaginatedDissemination>;
     getPerson: (id: string) => Promise<i.Person>;
     getOrganisation: (id: string) => Promise<i.Organisation>;
     getFund: (id: string) => Promise<i.Fund>;

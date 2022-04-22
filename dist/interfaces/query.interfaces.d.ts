@@ -12,70 +12,70 @@ export declare enum SortOrder {
     ASCENDING = "A",
     DESCENDING = "D"
 }
-export interface GetPeopleQuery extends GenericQuery {
-    searchFields?: GetPeopleSearchFields[];
-    sortFields?: GetPeopleSortFields;
+export interface PeopleQuery extends GenericQuery {
+    searchFields?: PeopleSearchFields[];
+    sortFields?: PeopleSortFields;
 }
-export interface GetProjectsQuery extends GenericQuery {
-    searchFields?: GetProjectsSearchFields[];
-    sortFields?: GetProjectsSortFields;
+export interface ProjectsQuery extends GenericQuery {
+    searchFields?: ProjectsSearchFields[];
+    sortFields?: ProjectsSortFields;
 }
-export interface GetOrganisationsQuery extends GenericQuery {
-    searchFields?: GetOrganisationsSearchFields[];
-    sortFields?: GetOrganisationsSortFields;
+export interface OrganisationsQuery extends GenericQuery {
+    searchFields?: OrganisationsSearchFields[];
+    sortFields?: OrganisationsSortFields;
 }
-export interface GetFundsQuery extends GenericQuery {
-    searchFields?: GetFundsSearchFields[];
-    sortFields?: GetFundsSortFields;
+export interface FundsQuery extends GenericQuery {
+    searchFields?: FundsSearchFields[];
+    sortFields?: FundsSortFields;
 }
-export interface GetOutcomesQuery extends GenericQuery {
-    sortFields?: GetOutcomesSortFields;
+export interface OutcomesQuery extends GenericQuery {
+    sortFields?: OutcomesSortFields;
 }
-export interface GetKeyFindingsQuery extends GenericQuery {
-    searchFields?: GetKeyFindingsSearchFields[];
-    sortFields?: GetKeyFindingsSortFields;
+export interface KeyFindingsQuery extends GenericQuery {
+    searchFields?: KeyFindingsSearchFields[];
+    sortFields?: KeyFindingsSortFields;
 }
-export interface GetImpactSummariesQuery extends GenericQuery {
-    searchFields?: GetImpactSummariesSearchFields[];
-    sortFields?: GetImpactSummariesSortFields;
+export interface ImpactSummariesQuery extends GenericQuery {
+    searchFields?: ImpactSummariesSearchFields[];
+    sortFields?: ImpactSummariesSortFields;
 }
-export interface GetPublicationsQuery extends GenericQuery {
-    searchFields?: GetPublicationsSearchFields[];
-    sortFields?: GetPublicationsSortFields;
+export interface PublicationsQuery extends GenericQuery {
+    searchFields?: PublicationsSearchFields[];
+    sortFields?: PublicationsSortFields;
 }
-export interface GetCollaborationsQuery extends GenericQuery {
-    searchFields?: GetCollaborationsSearchFields[];
-    sortFields?: GetCollaborationsSortFields;
+export interface CollaborationsQuery extends GenericQuery {
+    searchFields?: CollaborationsSearchFields[];
+    sortFields?: CollaborationsSortFields;
 }
-export interface GetIntellectualPropertiesQuery extends GenericQuery {
-    searchFields?: GetIntellectualPropertiesSearchFields[];
-    sortFields?: GetIntellectualPropertiesSortFields;
+export interface IntellectualPropertiesQuery extends GenericQuery {
+    searchFields?: IntellectualPropertiesSearchFields[];
+    sortFields?: IntellectualPropertiesSortFields;
 }
-export interface GetPolicyInfluencesQuery extends GenericQuery {
-    searchFields?: GetPolicyInfluencesSearchFields[];
-    sortFields?: GetPolicyInfluencesSortFields;
+export interface PolicyInfluencesQuery extends GenericQuery {
+    searchFields?: PolicyInfluencesSearchFields[];
+    sortFields?: PolicyInfluencesSortFields;
 }
-export interface GetProductsQuery extends GenericQuery {
-    searchFields?: GetProductsSearchFields[];
-    sortFields?: GetProductsSortFields;
+export interface ProductsQuery extends GenericQuery {
+    searchFields?: ProductsSearchFields[];
+    sortFields?: ProductsSortFields;
 }
-export interface GetResearchMaterialsQuery extends GenericQuery {
-    searchFields?: GetResearchMaterialsSearchFields[];
-    sortFields?: GetResearchMaterialsSortFields;
+export interface ResearchMaterialsQuery extends GenericQuery {
+    searchFields?: ResearchMaterialsSearchFields[];
+    sortFields?: ResearchMaterialsSortFields;
 }
-export interface GetSpinoutsQuery extends GenericQuery {
-    searchFields?: GetSpinoutsSearchFields[];
-    sortFields?: GetSpinoutsSortFields;
+export interface SpinoutsQuery extends GenericQuery {
+    searchFields?: SpinoutsSearchFields[];
+    sortFields?: SpinoutsSortFields;
 }
-export interface GetFurtherFundingsQuery extends GenericQuery {
-    searchFields?: GetFurtherFundingsSearchFields[];
-    sortFields?: GetFurtherFundingsSortFields;
+export interface FurtherFundingsQuery extends GenericQuery {
+    searchFields?: FurtherFundingsSearchFields[];
+    sortFields?: FurtherFundingsSortFields;
 }
-export interface GetDisseminationsQuery extends GenericQuery {
-    searchFields?: GetDisseminationsSearchFields[];
-    sortFields?: GetDisseminationsSortFields;
+export interface DisseminationsQuery extends GenericQuery {
+    searchFields?: DisseminationsSearchFields[];
+    sortFields?: DisseminationsSortFields;
 }
-export declare enum GetDisseminationsSearchFields {
+export declare enum DisseminationsSearchFields {
     PROJECT_ID = "dis.p",
     TITLE = "dis.t",
     DESCRIPTION = "dis.d",
@@ -84,10 +84,10 @@ export declare enum GetDisseminationsSearchFields {
     OUTCOME_ID = "dis.oid",
     GRANT_REF = "dis.gref"
 }
-export declare enum GetDisseminationsSortFields {
+export declare enum DisseminationsSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetFurtherFundingsSearchFields {
+export declare enum FurtherFundingsSearchFields {
     PROJECT_TITLE = "ff.p",
     TITLE = "ff.t",
     DESCRIPTION = "ff.d",
@@ -98,10 +98,10 @@ export declare enum GetFurtherFundingsSearchFields {
     OUTCOME_ID = "ff.oid",
     GRANT_REF = "FF.gref"
 }
-export declare enum GetFurtherFundingsSortFields {
+export declare enum FurtherFundingsSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetSpinoutsSearchFields {
+export declare enum SpinoutsSearchFields {
     PROJECT_ID = "so.p",
     TITLE = "so.t",
     DESCRIPTION = "so.d",
@@ -111,10 +111,10 @@ export declare enum GetSpinoutsSearchFields {
     OUTCOME_ID = "so.oid",
     GRANT_REF = "so.gref"
 }
-export declare enum GetSpinoutsSortFields {
+export declare enum SpinoutsSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetResearchMaterialsSearchFields {
+export declare enum ResearchMaterialsSearchFields {
     PROJECT_ID = "rtp.p",
     TITLE = "rtp.t",
     DESCRIPTION = "rtp.d",
@@ -122,20 +122,20 @@ export declare enum GetResearchMaterialsSearchFields {
     OUTCOME_ID = "rtp.oid",
     GRANT_REF = "rtp.gref"
 }
-export declare enum GetResearchMaterialsSortFields {
+export declare enum ResearchMaterialsSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetProductsSearchFields {
+export declare enum ProductsSearchFields {
     PROJECT_ID = "prod.p",
     IMPACT = "prod.i",
     UKCRN_ISCTN_ID = "prod.uiid",
     OUTCOME_ID = "prod.oid",
     GRANT_REF = "prod.gref"
 }
-export declare enum GetProductsSortFields {
+export declare enum ProductsSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetPolicyInfluencesSearchFields {
+export declare enum PolicyInfluencesSearchFields {
     PROJECT_ID = "pol.p",
     IMPACT = "pol.i",
     GUIDELINE_TITLE = "pol.gt",
@@ -145,10 +145,10 @@ export declare enum GetPolicyInfluencesSearchFields {
     OUTCOME_ID = "pol.oid",
     GRANT_REF = "pol.gref"
 }
-export declare enum GetPolicyInfluencesSortFields {
+export declare enum PolicyInfluencesSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetIntellectualPropertiesSearchFields {
+export declare enum IntellectualPropertiesSearchFields {
     PROJECT_ID = "ip.p",
     TITLE = "ip.t",
     DESCRIPTION = "ip.d",
@@ -158,10 +158,10 @@ export declare enum GetIntellectualPropertiesSearchFields {
     OUTCOME_ID = "ip.oid",
     GRANT_REF = "ip.gref"
 }
-export declare enum GetIntellectualPropertiesSortFields {
+export declare enum IntellectualPropertiesSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetPeopleSearchFields {
+export declare enum PeopleSearchFields {
     FIRST_NAME = "per.fn",
     FAMILY_NAME = "per.sn",
     FIRST_NAME_FAMILY_NAME = "per.fnsn",
@@ -170,12 +170,12 @@ export declare enum GetPeopleSearchFields {
     PROJECT_TITLES = "per.pro.t",
     PROJECT_ABCSTRACTS = "per.pro.abs"
 }
-export declare enum GetPeopleSortFields {
+export declare enum PeopleSortFields {
     FIRST_NAME = "per.fn",
     FAMILY_NAME = "per.sn",
     RELEVANCE = "score"
 }
-export declare enum GetProjectsSearchFields {
+export declare enum ProjectsSearchFields {
     PROJECT_REFERENCE = "pro.gr",
     PROJECT_TITLE = "pro.t",
     PROJECT_ABSTRACT = "pro.a",
@@ -185,39 +185,39 @@ export declare enum GetProjectsSearchFields {
     RCUK_PROGRAMMES = "pro.rcukp",
     LEAD_FUNDER_NAME = "pro.lf"
 }
-export declare enum GetProjectsSortFields {
+export declare enum ProjectsSortFields {
     START_DATE = "pro.sd",
     END_DATE = "pro.ed",
     FUNDED_VALUE = "pro.am",
     RELEVANCE = "score"
 }
-export declare enum GetOrganisationsSearchFields {
+export declare enum OrganisationsSearchFields {
     ORGANISATION_NAME = "org.n",
     PROJECT_TITLES = "org.pro.t",
     ORCID_ID = "org.orcidId",
     PROJECT_ABCSTRACTS = "org.pro.a"
 }
-export declare enum GetOrganisationsSortFields {
+export declare enum OrganisationsSortFields {
     ORGANISATION_NAME = "org.n",
     RELEVANCE = "score"
 }
-export declare enum GetFundsSearchFields {
+export declare enum FundsSearchFields {
     FUNDED_PROJECT_TITLE = "fu.pro.t",
     FUND_AMOUNT = "fu.am",
     FUNDER_ORGANISATION_NAME = "fu.org.n",
     FUND_TYPE = "fu.ty"
 }
-export declare enum GetFundsSortFields {
+export declare enum FundsSortFields {
     FUND_START_DATE = "fu.sd",
     FUND_END_DATE = "fu.ed",
     FUND_AMOUNT = "fu.am",
     FUND_TYPE = "fu.ty",
     RELEVANCE = "score"
 }
-export declare enum GetOutcomesSortFields {
+export declare enum OutcomesSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetKeyFindingsSearchFields {
+export declare enum KeyFindingsSearchFields {
     PROJECT_ID = "kf.p",
     DESCRIPTION = "kf.d",
     SECTOR = "kf.s",
@@ -226,10 +226,10 @@ export declare enum GetKeyFindingsSearchFields {
     OUTCOME_ID = "kf.oid",
     GRANT_REF = "kf.gref"
 }
-export declare enum GetKeyFindingsSortFields {
+export declare enum KeyFindingsSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetImpactSummariesSearchFields {
+export declare enum ImpactSummariesSearchFields {
     PROJECT_ID = "is.p",
     TITLE = "is.t",
     DESCRIPTION = "is.d",
@@ -241,10 +241,10 @@ export declare enum GetImpactSummariesSearchFields {
     OUTCOME_ID = "is.oid",
     GRANT_REF = "is.gref"
 }
-export declare enum GetImpactSummariesSortFields {
+export declare enum ImpactSummariesSortFields {
     RELEVANCE = "score"
 }
-export declare enum GetPublicationsSearchFields {
+export declare enum PublicationsSearchFields {
     PROJECT_ID = "pub.p",
     TITLE = "pub.t",
     ABSTRACT = "pub.a",
@@ -257,11 +257,11 @@ export declare enum GetPublicationsSearchFields {
     OUTCOME_ID = "pub.oid",
     GRANT_REF = "pub.gref"
 }
-export declare enum GetPublicationsSortFields {
+export declare enum PublicationsSortFields {
     DATE = "pub.date",
     RELEVANCE = "score"
 }
-export declare enum GetCollaborationsSearchFields {
+export declare enum CollaborationsSearchFields {
     PROJECT_ID = "col.p",
     IMPACT = "col.i",
     DESCRIPTION = "col.d",
@@ -273,7 +273,7 @@ export declare enum GetCollaborationsSearchFields {
     OUTCOME_ID = "col.oid",
     GRANT_REF = "col.gref"
 }
-export declare enum GetCollaborationsSortFields {
+export declare enum CollaborationsSortFields {
     START_DATE = "col.std",
     RELEVANCE = "score"
 }
