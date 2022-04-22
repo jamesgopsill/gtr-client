@@ -23,5 +23,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
-        run: yarn
-      - run: yarn test
+        run: pnpm install
+      - name: Run Tests
+        run: pnpm test
