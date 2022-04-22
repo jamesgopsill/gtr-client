@@ -18,7 +18,15 @@ jobs:
           registry-url: 'https://npm.pkg.github.com/'
           # Defaults to the user or organization that own the workflow file
           scope: '@jamesgopsill'
-      - run: yarn
-      - run: yarn publish
+      - name: Install PNPM
+        run: npm install -g pnpm
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Publishing Package
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      #- run: yarn
+      #- run: yarn publish
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

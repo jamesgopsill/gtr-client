@@ -1,242 +1,242 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetCollaborationsSortFields = exports.GetCollaborationsSearchFields = exports.GetPublicationsSortFields = exports.GetPublicationsSearchFields = exports.GetImpactSummariesSortFields = exports.GetImpactSummariesSearchFields = exports.GetKeyFindingsSortFields = exports.GetKeyFindingsSearchFields = exports.GetOutcomesSortFields = exports.GetFundsSortFields = exports.GetFundsSearchFields = exports.GetOrganisationsSortFields = exports.GetOrganisationsSearchFields = exports.GetProjectsSortFields = exports.GetProjectsSearchFields = exports.GetPeopleSortFields = exports.GetPeopleSearchFields = exports.GetIntellectualPropertiesSortFields = exports.GetIntellectualPropertiesSearchFields = exports.GetPolicyInfluencesSortFields = exports.GetPolicyInfluencesSearchFields = exports.GetProductsSortFields = exports.GetProductsSearchFields = exports.GetResearchMaterialsSortFields = exports.GetResearchMaterialsSearchFields = exports.GetSpinoutsSortFields = exports.GetSpinoutsSearchFields = exports.GetFurtherFundingsSortFields = exports.GetFurtherFundingsSearchFields = exports.GetDisseminationsSortFields = exports.GetDisseminationsSearchFields = exports.SortOrder = void 0;
+exports.CollaborationsSortFields = exports.CollaborationsSearchFields = exports.PublicationsSortFields = exports.PublicationsSearchFields = exports.ImpactSummariesSortFields = exports.ImpactSummariesSearchFields = exports.KeyFindingsSortFields = exports.KeyFindingsSearchFields = exports.OutcomesSortFields = exports.FundsSortFields = exports.FundsSearchFields = exports.OrganisationsSortFields = exports.OrganisationsSearchFields = exports.ProjectsSortFields = exports.ProjectsSearchFields = exports.PeopleSortFields = exports.PeopleSearchFields = exports.IntellectualPropertiesSortFields = exports.IntellectualPropertiesSearchFields = exports.PolicyInfluencesSortFields = exports.PolicyInfluencesSearchFields = exports.ProductsSortFields = exports.ProductsSearchFields = exports.ResearchMaterialsSortFields = exports.ResearchMaterialsSearchFields = exports.SpinoutsSortFields = exports.SpinoutsSearchFields = exports.FurtherFundingsSortFields = exports.FurtherFundingsSearchFields = exports.DisseminationsSortFields = exports.DisseminationsSearchFields = exports.SortOrder = void 0;
 var SortOrder;
 (function (SortOrder) {
     SortOrder["ASCENDING"] = "A";
     SortOrder["DESCENDING"] = "D";
 })(SortOrder = exports.SortOrder || (exports.SortOrder = {}));
 // => Enums
-var GetDisseminationsSearchFields;
-(function (GetDisseminationsSearchFields) {
-    GetDisseminationsSearchFields["PROJECT_ID"] = "dis.p";
-    GetDisseminationsSearchFields["TITLE"] = "dis.t";
-    GetDisseminationsSearchFields["DESCRIPTION"] = "dis.d";
-    GetDisseminationsSearchFields["IMPACT"] = "dis.i";
-    GetDisseminationsSearchFields["PRESENTATION_TYPE"] = "dis.pt";
-    GetDisseminationsSearchFields["OUTCOME_ID"] = "dis.oid";
-    GetDisseminationsSearchFields["GRANT_REF"] = "dis.gref";
-})(GetDisseminationsSearchFields = exports.GetDisseminationsSearchFields || (exports.GetDisseminationsSearchFields = {}));
-var GetDisseminationsSortFields;
-(function (GetDisseminationsSortFields) {
-    GetDisseminationsSortFields["RELEVANCE"] = "score";
-})(GetDisseminationsSortFields = exports.GetDisseminationsSortFields || (exports.GetDisseminationsSortFields = {}));
-var GetFurtherFundingsSearchFields;
-(function (GetFurtherFundingsSearchFields) {
-    GetFurtherFundingsSearchFields["PROJECT_TITLE"] = "ff.p";
-    GetFurtherFundingsSearchFields["TITLE"] = "ff.t";
-    GetFurtherFundingsSearchFields["DESCRIPTION"] = "ff.d";
-    GetFurtherFundingsSearchFields["SECTOR"] = "ff.s";
-    GetFurtherFundingsSearchFields["FUNDING_ORGANISATION"] = "ff.org";
-    GetFurtherFundingsSearchFields["FUNDING_ORGANISATION_DEPARTMENT"] = "ff.dept";
-    GetFurtherFundingsSearchFields["FUNDING_ID"] = "ff.id";
-    GetFurtherFundingsSearchFields["OUTCOME_ID"] = "ff.oid";
-    GetFurtherFundingsSearchFields["GRANT_REF"] = "FF.gref";
-})(GetFurtherFundingsSearchFields = exports.GetFurtherFundingsSearchFields || (exports.GetFurtherFundingsSearchFields = {}));
-var GetFurtherFundingsSortFields;
-(function (GetFurtherFundingsSortFields) {
-    GetFurtherFundingsSortFields["RELEVANCE"] = "score";
-})(GetFurtherFundingsSortFields = exports.GetFurtherFundingsSortFields || (exports.GetFurtherFundingsSortFields = {}));
-var GetSpinoutsSearchFields;
-(function (GetSpinoutsSearchFields) {
-    GetSpinoutsSearchFields["PROJECT_ID"] = "so.p";
-    GetSpinoutsSearchFields["TITLE"] = "so.t";
-    GetSpinoutsSearchFields["DESCRIPTION"] = "so.d";
-    GetSpinoutsSearchFields["COMPANY_NAME"] = "so.cn";
-    GetSpinoutsSearchFields["COMPANY_DESCRIPTION"] = "sn.cd";
-    GetSpinoutsSearchFields["REGISTRATION_NUMBER"] = "so.reg";
-    GetSpinoutsSearchFields["OUTCOME_ID"] = "so.oid";
-    GetSpinoutsSearchFields["GRANT_REF"] = "so.gref";
-})(GetSpinoutsSearchFields = exports.GetSpinoutsSearchFields || (exports.GetSpinoutsSearchFields = {}));
-var GetSpinoutsSortFields;
-(function (GetSpinoutsSortFields) {
-    GetSpinoutsSortFields["RELEVANCE"] = "score";
-})(GetSpinoutsSortFields = exports.GetSpinoutsSortFields || (exports.GetSpinoutsSortFields = {}));
-var GetResearchMaterialsSearchFields;
-(function (GetResearchMaterialsSearchFields) {
-    GetResearchMaterialsSearchFields["PROJECT_ID"] = "rtp.p";
-    GetResearchMaterialsSearchFields["TITLE"] = "rtp.t";
-    GetResearchMaterialsSearchFields["DESCRIPTION"] = "rtp.d";
-    GetResearchMaterialsSearchFields["IMPACT"] = "rtp.i";
-    GetResearchMaterialsSearchFields["OUTCOME_ID"] = "rtp.oid";
-    GetResearchMaterialsSearchFields["GRANT_REF"] = "rtp.gref";
-})(GetResearchMaterialsSearchFields = exports.GetResearchMaterialsSearchFields || (exports.GetResearchMaterialsSearchFields = {}));
-var GetResearchMaterialsSortFields;
-(function (GetResearchMaterialsSortFields) {
-    GetResearchMaterialsSortFields["RELEVANCE"] = "score";
-})(GetResearchMaterialsSortFields = exports.GetResearchMaterialsSortFields || (exports.GetResearchMaterialsSortFields = {}));
-var GetProductsSearchFields;
-(function (GetProductsSearchFields) {
-    GetProductsSearchFields["PROJECT_ID"] = "prod.p";
-    GetProductsSearchFields["IMPACT"] = "prod.i";
-    GetProductsSearchFields["UKCRN_ISCTN_ID"] = "prod.uiid";
-    GetProductsSearchFields["OUTCOME_ID"] = "prod.oid";
-    GetProductsSearchFields["GRANT_REF"] = "prod.gref";
-})(GetProductsSearchFields = exports.GetProductsSearchFields || (exports.GetProductsSearchFields = {}));
-var GetProductsSortFields;
-(function (GetProductsSortFields) {
-    GetProductsSortFields["RELEVANCE"] = "score";
-})(GetProductsSortFields = exports.GetProductsSortFields || (exports.GetProductsSortFields = {}));
-var GetPolicyInfluencesSearchFields;
-(function (GetPolicyInfluencesSearchFields) {
-    GetPolicyInfluencesSearchFields["PROJECT_ID"] = "pol.p";
-    GetPolicyInfluencesSearchFields["IMPACT"] = "pol.i";
-    GetPolicyInfluencesSearchFields["GUIDELINE_TITLE"] = "pol.gt";
-    GetPolicyInfluencesSearchFields["DESCRIPTION"] = "pol.in";
-    GetPolicyInfluencesSearchFields["METHODS"] = "pol.meth";
-    GetPolicyInfluencesSearchFields["AREAS"] = "pol.area";
-    GetPolicyInfluencesSearchFields["OUTCOME_ID"] = "pol.oid";
-    GetPolicyInfluencesSearchFields["GRANT_REF"] = "pol.gref";
-})(GetPolicyInfluencesSearchFields = exports.GetPolicyInfluencesSearchFields || (exports.GetPolicyInfluencesSearchFields = {}));
-var GetPolicyInfluencesSortFields;
-(function (GetPolicyInfluencesSortFields) {
-    GetPolicyInfluencesSortFields["RELEVANCE"] = "score";
-})(GetPolicyInfluencesSortFields = exports.GetPolicyInfluencesSortFields || (exports.GetPolicyInfluencesSortFields = {}));
-var GetIntellectualPropertiesSearchFields;
-(function (GetIntellectualPropertiesSearchFields) {
-    GetIntellectualPropertiesSearchFields["PROJECT_ID"] = "ip.p";
-    GetIntellectualPropertiesSearchFields["TITLE"] = "ip.t";
-    GetIntellectualPropertiesSearchFields["DESCRIPTION"] = "ip.d";
-    GetIntellectualPropertiesSearchFields["IMPACT"] = "ip.i";
-    GetIntellectualPropertiesSearchFields["PROTECTION"] = "ip.pro";
-    GetIntellectualPropertiesSearchFields["PATENT_ID"] = "ip.pat";
-    GetIntellectualPropertiesSearchFields["OUTCOME_ID"] = "ip.oid";
-    GetIntellectualPropertiesSearchFields["GRANT_REF"] = "ip.gref";
-})(GetIntellectualPropertiesSearchFields = exports.GetIntellectualPropertiesSearchFields || (exports.GetIntellectualPropertiesSearchFields = {}));
-var GetIntellectualPropertiesSortFields;
-(function (GetIntellectualPropertiesSortFields) {
-    GetIntellectualPropertiesSortFields["RELEVANCE"] = "score";
-})(GetIntellectualPropertiesSortFields = exports.GetIntellectualPropertiesSortFields || (exports.GetIntellectualPropertiesSortFields = {}));
-var GetPeopleSearchFields;
-(function (GetPeopleSearchFields) {
-    GetPeopleSearchFields["FIRST_NAME"] = "per.fn";
-    GetPeopleSearchFields["FAMILY_NAME"] = "per.sn";
-    GetPeopleSearchFields["FIRST_NAME_FAMILY_NAME"] = "per.fnsn";
-    GetPeopleSearchFields["ORCID_ID"] = "per.orcidId";
-    GetPeopleSearchFields["ORGANISATION_NAME"] = "per.org.n";
-    GetPeopleSearchFields["PROJECT_TITLES"] = "per.pro.t";
-    GetPeopleSearchFields["PROJECT_ABCSTRACTS"] = "per.pro.abs";
-})(GetPeopleSearchFields = exports.GetPeopleSearchFields || (exports.GetPeopleSearchFields = {}));
-var GetPeopleSortFields;
-(function (GetPeopleSortFields) {
-    GetPeopleSortFields["FIRST_NAME"] = "per.fn";
-    GetPeopleSortFields["FAMILY_NAME"] = "per.sn";
-    GetPeopleSortFields["RELEVANCE"] = "score";
-})(GetPeopleSortFields = exports.GetPeopleSortFields || (exports.GetPeopleSortFields = {}));
-var GetProjectsSearchFields;
-(function (GetProjectsSearchFields) {
-    GetProjectsSearchFields["PROJECT_REFERENCE"] = "pro.gr";
-    GetProjectsSearchFields["PROJECT_TITLE"] = "pro.t";
-    GetProjectsSearchFields["PROJECT_ABSTRACT"] = "pro.a";
-    GetProjectsSearchFields["ORCID_ID"] = "pro.orcidId";
-    GetProjectsSearchFields["RESEARCH_TOPICS"] = "pro.rt";
-    GetProjectsSearchFields["HEALTH_ACTIVITIES"] = "pro.ha";
-    GetProjectsSearchFields["RCUK_PROGRAMMES"] = "pro.rcukp";
-    GetProjectsSearchFields["LEAD_FUNDER_NAME"] = "pro.lf";
-})(GetProjectsSearchFields = exports.GetProjectsSearchFields || (exports.GetProjectsSearchFields = {}));
-var GetProjectsSortFields;
-(function (GetProjectsSortFields) {
-    GetProjectsSortFields["START_DATE"] = "pro.sd";
-    GetProjectsSortFields["END_DATE"] = "pro.ed";
-    GetProjectsSortFields["FUNDED_VALUE"] = "pro.am";
-    GetProjectsSortFields["RELEVANCE"] = "score";
-})(GetProjectsSortFields = exports.GetProjectsSortFields || (exports.GetProjectsSortFields = {}));
-var GetOrganisationsSearchFields;
-(function (GetOrganisationsSearchFields) {
-    GetOrganisationsSearchFields["ORGANISATION_NAME"] = "org.n";
-    GetOrganisationsSearchFields["PROJECT_TITLES"] = "org.pro.t";
-    GetOrganisationsSearchFields["ORCID_ID"] = "org.orcidId";
-    GetOrganisationsSearchFields["PROJECT_ABCSTRACTS"] = "org.pro.a";
-})(GetOrganisationsSearchFields = exports.GetOrganisationsSearchFields || (exports.GetOrganisationsSearchFields = {}));
-var GetOrganisationsSortFields;
-(function (GetOrganisationsSortFields) {
-    GetOrganisationsSortFields["ORGANISATION_NAME"] = "org.n";
-    GetOrganisationsSortFields["RELEVANCE"] = "score";
-})(GetOrganisationsSortFields = exports.GetOrganisationsSortFields || (exports.GetOrganisationsSortFields = {}));
-var GetFundsSearchFields;
-(function (GetFundsSearchFields) {
-    GetFundsSearchFields["FUNDED_PROJECT_TITLE"] = "fu.pro.t";
-    GetFundsSearchFields["FUND_AMOUNT"] = "fu.am";
-    GetFundsSearchFields["FUNDER_ORGANISATION_NAME"] = "fu.org.n";
-    GetFundsSearchFields["FUND_TYPE"] = "fu.ty";
-})(GetFundsSearchFields = exports.GetFundsSearchFields || (exports.GetFundsSearchFields = {}));
-var GetFundsSortFields;
-(function (GetFundsSortFields) {
-    GetFundsSortFields["FUND_START_DATE"] = "fu.sd";
-    GetFundsSortFields["FUND_END_DATE"] = "fu.ed";
-    GetFundsSortFields["FUND_AMOUNT"] = "fu.am";
-    GetFundsSortFields["FUND_TYPE"] = "fu.ty";
-    GetFundsSortFields["RELEVANCE"] = "score";
-})(GetFundsSortFields = exports.GetFundsSortFields || (exports.GetFundsSortFields = {}));
-var GetOutcomesSortFields;
-(function (GetOutcomesSortFields) {
-    GetOutcomesSortFields["RELEVANCE"] = "score";
-})(GetOutcomesSortFields = exports.GetOutcomesSortFields || (exports.GetOutcomesSortFields = {}));
-var GetKeyFindingsSearchFields;
-(function (GetKeyFindingsSearchFields) {
-    GetKeyFindingsSearchFields["PROJECT_ID"] = "kf.p";
-    GetKeyFindingsSearchFields["DESCRIPTION"] = "kf.d";
-    GetKeyFindingsSearchFields["SECTOR"] = "kf.s";
-    GetKeyFindingsSearchFields["EXPLOITATION_PATHWAYS"] = "kf.ep";
-    GetKeyFindingsSearchFields["NON_ACADEMIC_USERS"] = "kf.nau";
-    GetKeyFindingsSearchFields["OUTCOME_ID"] = "kf.oid";
-    GetKeyFindingsSearchFields["GRANT_REF"] = "kf.gref";
-})(GetKeyFindingsSearchFields = exports.GetKeyFindingsSearchFields || (exports.GetKeyFindingsSearchFields = {}));
-var GetKeyFindingsSortFields;
-(function (GetKeyFindingsSortFields) {
-    GetKeyFindingsSortFields["RELEVANCE"] = "score";
-})(GetKeyFindingsSortFields = exports.GetKeyFindingsSortFields || (exports.GetKeyFindingsSortFields = {}));
-var GetImpactSummariesSearchFields;
-(function (GetImpactSummariesSearchFields) {
-    GetImpactSummariesSearchFields["PROJECT_ID"] = "is.p";
-    GetImpactSummariesSearchFields["TITLE"] = "is.t";
-    GetImpactSummariesSearchFields["DESCRIPTION"] = "is.d";
-    GetImpactSummariesSearchFields["SECTOR"] = "is.s";
-    GetImpactSummariesSearchFields["BENEFICIARIES"] = "is.ben";
-    GetImpactSummariesSearchFields["CONTRIBUTION_METHOD"] = "is.cm";
-    GetImpactSummariesSearchFields["IMPACT_TYPES"] = "is.it";
-    GetImpactSummariesSearchFields["SUMMARY"] = "is.sum";
-    GetImpactSummariesSearchFields["OUTCOME_ID"] = "is.oid";
-    GetImpactSummariesSearchFields["GRANT_REF"] = "is.gref";
-})(GetImpactSummariesSearchFields = exports.GetImpactSummariesSearchFields || (exports.GetImpactSummariesSearchFields = {}));
-var GetImpactSummariesSortFields;
-(function (GetImpactSummariesSortFields) {
-    GetImpactSummariesSortFields["RELEVANCE"] = "score";
-})(GetImpactSummariesSortFields = exports.GetImpactSummariesSortFields || (exports.GetImpactSummariesSortFields = {}));
-var GetPublicationsSearchFields;
-(function (GetPublicationsSearchFields) {
-    GetPublicationsSearchFields["PROJECT_ID"] = "pub.p";
-    GetPublicationsSearchFields["TITLE"] = "pub.t";
-    GetPublicationsSearchFields["ABSTRACT"] = "pub.a";
-    GetPublicationsSearchFields["PROJECT_TITLE"] = "pub.pr.t";
-    GetPublicationsSearchFields["ISBN"] = "pub.isbn";
-    GetPublicationsSearchFields["ISSN"] = "pub.issn";
-    GetPublicationsSearchFields["PARENT_PUBLICATION"] = "pub.jt";
-    GetPublicationsSearchFields["PUBMED_ID"] = "pub.pmid";
-    GetPublicationsSearchFields["DOI"] = "pub.doi";
-    GetPublicationsSearchFields["OUTCOME_ID"] = "pub.oid";
-    GetPublicationsSearchFields["GRANT_REF"] = "pub.gref";
-})(GetPublicationsSearchFields = exports.GetPublicationsSearchFields || (exports.GetPublicationsSearchFields = {}));
-var GetPublicationsSortFields;
-(function (GetPublicationsSortFields) {
-    GetPublicationsSortFields["DATE"] = "pub.date";
-    GetPublicationsSortFields["RELEVANCE"] = "score";
-})(GetPublicationsSortFields = exports.GetPublicationsSortFields || (exports.GetPublicationsSortFields = {}));
-var GetCollaborationsSearchFields;
-(function (GetCollaborationsSearchFields) {
-    GetCollaborationsSearchFields["PROJECT_ID"] = "col.p";
-    GetCollaborationsSearchFields["IMPACT"] = "col.i";
-    GetCollaborationsSearchFields["DESCRIPTION"] = "col.d";
-    GetCollaborationsSearchFields["SECTOR"] = "col.s";
-    GetCollaborationsSearchFields["DEPARTMENT"] = "col.dept";
-    GetCollaborationsSearchFields["ORGANISATION"] = "col.org";
-    GetCollaborationsSearchFields["PARTNER_CONTRIBUTION"] = "col.pc";
-    GetCollaborationsSearchFields["PRINCIPAL_INVESTIGATOR_CONTRIBUTION"] = "col.pic";
-    GetCollaborationsSearchFields["OUTCOME_ID"] = "col.oid";
-    GetCollaborationsSearchFields["GRANT_REF"] = "col.gref";
-})(GetCollaborationsSearchFields = exports.GetCollaborationsSearchFields || (exports.GetCollaborationsSearchFields = {}));
-var GetCollaborationsSortFields;
-(function (GetCollaborationsSortFields) {
-    GetCollaborationsSortFields["START_DATE"] = "col.std";
-    GetCollaborationsSortFields["RELEVANCE"] = "score";
-})(GetCollaborationsSortFields = exports.GetCollaborationsSortFields || (exports.GetCollaborationsSortFields = {}));
+var DisseminationsSearchFields;
+(function (DisseminationsSearchFields) {
+    DisseminationsSearchFields["PROJECT_ID"] = "dis.p";
+    DisseminationsSearchFields["TITLE"] = "dis.t";
+    DisseminationsSearchFields["DESCRIPTION"] = "dis.d";
+    DisseminationsSearchFields["IMPACT"] = "dis.i";
+    DisseminationsSearchFields["PRESENTATION_TYPE"] = "dis.pt";
+    DisseminationsSearchFields["OUTCOME_ID"] = "dis.oid";
+    DisseminationsSearchFields["GRANT_REF"] = "dis.gref";
+})(DisseminationsSearchFields = exports.DisseminationsSearchFields || (exports.DisseminationsSearchFields = {}));
+var DisseminationsSortFields;
+(function (DisseminationsSortFields) {
+    DisseminationsSortFields["RELEVANCE"] = "score";
+})(DisseminationsSortFields = exports.DisseminationsSortFields || (exports.DisseminationsSortFields = {}));
+var FurtherFundingsSearchFields;
+(function (FurtherFundingsSearchFields) {
+    FurtherFundingsSearchFields["PROJECT_TITLE"] = "ff.p";
+    FurtherFundingsSearchFields["TITLE"] = "ff.t";
+    FurtherFundingsSearchFields["DESCRIPTION"] = "ff.d";
+    FurtherFundingsSearchFields["SECTOR"] = "ff.s";
+    FurtherFundingsSearchFields["FUNDING_ORGANISATION"] = "ff.org";
+    FurtherFundingsSearchFields["FUNDING_ORGANISATION_DEPARTMENT"] = "ff.dept";
+    FurtherFundingsSearchFields["FUNDING_ID"] = "ff.id";
+    FurtherFundingsSearchFields["OUTCOME_ID"] = "ff.oid";
+    FurtherFundingsSearchFields["GRANT_REF"] = "FF.gref";
+})(FurtherFundingsSearchFields = exports.FurtherFundingsSearchFields || (exports.FurtherFundingsSearchFields = {}));
+var FurtherFundingsSortFields;
+(function (FurtherFundingsSortFields) {
+    FurtherFundingsSortFields["RELEVANCE"] = "score";
+})(FurtherFundingsSortFields = exports.FurtherFundingsSortFields || (exports.FurtherFundingsSortFields = {}));
+var SpinoutsSearchFields;
+(function (SpinoutsSearchFields) {
+    SpinoutsSearchFields["PROJECT_ID"] = "so.p";
+    SpinoutsSearchFields["TITLE"] = "so.t";
+    SpinoutsSearchFields["DESCRIPTION"] = "so.d";
+    SpinoutsSearchFields["COMPANY_NAME"] = "so.cn";
+    SpinoutsSearchFields["COMPANY_DESCRIPTION"] = "sn.cd";
+    SpinoutsSearchFields["REGISTRATION_NUMBER"] = "so.reg";
+    SpinoutsSearchFields["OUTCOME_ID"] = "so.oid";
+    SpinoutsSearchFields["GRANT_REF"] = "so.gref";
+})(SpinoutsSearchFields = exports.SpinoutsSearchFields || (exports.SpinoutsSearchFields = {}));
+var SpinoutsSortFields;
+(function (SpinoutsSortFields) {
+    SpinoutsSortFields["RELEVANCE"] = "score";
+})(SpinoutsSortFields = exports.SpinoutsSortFields || (exports.SpinoutsSortFields = {}));
+var ResearchMaterialsSearchFields;
+(function (ResearchMaterialsSearchFields) {
+    ResearchMaterialsSearchFields["PROJECT_ID"] = "rtp.p";
+    ResearchMaterialsSearchFields["TITLE"] = "rtp.t";
+    ResearchMaterialsSearchFields["DESCRIPTION"] = "rtp.d";
+    ResearchMaterialsSearchFields["IMPACT"] = "rtp.i";
+    ResearchMaterialsSearchFields["OUTCOME_ID"] = "rtp.oid";
+    ResearchMaterialsSearchFields["GRANT_REF"] = "rtp.gref";
+})(ResearchMaterialsSearchFields = exports.ResearchMaterialsSearchFields || (exports.ResearchMaterialsSearchFields = {}));
+var ResearchMaterialsSortFields;
+(function (ResearchMaterialsSortFields) {
+    ResearchMaterialsSortFields["RELEVANCE"] = "score";
+})(ResearchMaterialsSortFields = exports.ResearchMaterialsSortFields || (exports.ResearchMaterialsSortFields = {}));
+var ProductsSearchFields;
+(function (ProductsSearchFields) {
+    ProductsSearchFields["PROJECT_ID"] = "prod.p";
+    ProductsSearchFields["IMPACT"] = "prod.i";
+    ProductsSearchFields["UKCRN_ISCTN_ID"] = "prod.uiid";
+    ProductsSearchFields["OUTCOME_ID"] = "prod.oid";
+    ProductsSearchFields["GRANT_REF"] = "prod.gref";
+})(ProductsSearchFields = exports.ProductsSearchFields || (exports.ProductsSearchFields = {}));
+var ProductsSortFields;
+(function (ProductsSortFields) {
+    ProductsSortFields["RELEVANCE"] = "score";
+})(ProductsSortFields = exports.ProductsSortFields || (exports.ProductsSortFields = {}));
+var PolicyInfluencesSearchFields;
+(function (PolicyInfluencesSearchFields) {
+    PolicyInfluencesSearchFields["PROJECT_ID"] = "pol.p";
+    PolicyInfluencesSearchFields["IMPACT"] = "pol.i";
+    PolicyInfluencesSearchFields["GUIDELINE_TITLE"] = "pol.gt";
+    PolicyInfluencesSearchFields["DESCRIPTION"] = "pol.in";
+    PolicyInfluencesSearchFields["METHODS"] = "pol.meth";
+    PolicyInfluencesSearchFields["AREAS"] = "pol.area";
+    PolicyInfluencesSearchFields["OUTCOME_ID"] = "pol.oid";
+    PolicyInfluencesSearchFields["GRANT_REF"] = "pol.gref";
+})(PolicyInfluencesSearchFields = exports.PolicyInfluencesSearchFields || (exports.PolicyInfluencesSearchFields = {}));
+var PolicyInfluencesSortFields;
+(function (PolicyInfluencesSortFields) {
+    PolicyInfluencesSortFields["RELEVANCE"] = "score";
+})(PolicyInfluencesSortFields = exports.PolicyInfluencesSortFields || (exports.PolicyInfluencesSortFields = {}));
+var IntellectualPropertiesSearchFields;
+(function (IntellectualPropertiesSearchFields) {
+    IntellectualPropertiesSearchFields["PROJECT_ID"] = "ip.p";
+    IntellectualPropertiesSearchFields["TITLE"] = "ip.t";
+    IntellectualPropertiesSearchFields["DESCRIPTION"] = "ip.d";
+    IntellectualPropertiesSearchFields["IMPACT"] = "ip.i";
+    IntellectualPropertiesSearchFields["PROTECTION"] = "ip.pro";
+    IntellectualPropertiesSearchFields["PATENT_ID"] = "ip.pat";
+    IntellectualPropertiesSearchFields["OUTCOME_ID"] = "ip.oid";
+    IntellectualPropertiesSearchFields["GRANT_REF"] = "ip.gref";
+})(IntellectualPropertiesSearchFields = exports.IntellectualPropertiesSearchFields || (exports.IntellectualPropertiesSearchFields = {}));
+var IntellectualPropertiesSortFields;
+(function (IntellectualPropertiesSortFields) {
+    IntellectualPropertiesSortFields["RELEVANCE"] = "score";
+})(IntellectualPropertiesSortFields = exports.IntellectualPropertiesSortFields || (exports.IntellectualPropertiesSortFields = {}));
+var PeopleSearchFields;
+(function (PeopleSearchFields) {
+    PeopleSearchFields["FIRST_NAME"] = "per.fn";
+    PeopleSearchFields["FAMILY_NAME"] = "per.sn";
+    PeopleSearchFields["FIRST_NAME_FAMILY_NAME"] = "per.fnsn";
+    PeopleSearchFields["ORCID_ID"] = "per.orcidId";
+    PeopleSearchFields["ORGANISATION_NAME"] = "per.org.n";
+    PeopleSearchFields["PROJECT_TITLES"] = "per.pro.t";
+    PeopleSearchFields["PROJECT_ABCSTRACTS"] = "per.pro.abs";
+})(PeopleSearchFields = exports.PeopleSearchFields || (exports.PeopleSearchFields = {}));
+var PeopleSortFields;
+(function (PeopleSortFields) {
+    PeopleSortFields["FIRST_NAME"] = "per.fn";
+    PeopleSortFields["FAMILY_NAME"] = "per.sn";
+    PeopleSortFields["RELEVANCE"] = "score";
+})(PeopleSortFields = exports.PeopleSortFields || (exports.PeopleSortFields = {}));
+var ProjectsSearchFields;
+(function (ProjectsSearchFields) {
+    ProjectsSearchFields["PROJECT_REFERENCE"] = "pro.gr";
+    ProjectsSearchFields["PROJECT_TITLE"] = "pro.t";
+    ProjectsSearchFields["PROJECT_ABSTRACT"] = "pro.a";
+    ProjectsSearchFields["ORCID_ID"] = "pro.orcidId";
+    ProjectsSearchFields["RESEARCH_TOPICS"] = "pro.rt";
+    ProjectsSearchFields["HEALTH_ACTIVITIES"] = "pro.ha";
+    ProjectsSearchFields["RCUK_PROGRAMMES"] = "pro.rcukp";
+    ProjectsSearchFields["LEAD_FUNDER_NAME"] = "pro.lf";
+})(ProjectsSearchFields = exports.ProjectsSearchFields || (exports.ProjectsSearchFields = {}));
+var ProjectsSortFields;
+(function (ProjectsSortFields) {
+    ProjectsSortFields["START_DATE"] = "pro.sd";
+    ProjectsSortFields["END_DATE"] = "pro.ed";
+    ProjectsSortFields["FUNDED_VALUE"] = "pro.am";
+    ProjectsSortFields["RELEVANCE"] = "score";
+})(ProjectsSortFields = exports.ProjectsSortFields || (exports.ProjectsSortFields = {}));
+var OrganisationsSearchFields;
+(function (OrganisationsSearchFields) {
+    OrganisationsSearchFields["ORGANISATION_NAME"] = "org.n";
+    OrganisationsSearchFields["PROJECT_TITLES"] = "org.pro.t";
+    OrganisationsSearchFields["ORCID_ID"] = "org.orcidId";
+    OrganisationsSearchFields["PROJECT_ABCSTRACTS"] = "org.pro.a";
+})(OrganisationsSearchFields = exports.OrganisationsSearchFields || (exports.OrganisationsSearchFields = {}));
+var OrganisationsSortFields;
+(function (OrganisationsSortFields) {
+    OrganisationsSortFields["ORGANISATION_NAME"] = "org.n";
+    OrganisationsSortFields["RELEVANCE"] = "score";
+})(OrganisationsSortFields = exports.OrganisationsSortFields || (exports.OrganisationsSortFields = {}));
+var FundsSearchFields;
+(function (FundsSearchFields) {
+    FundsSearchFields["FUNDED_PROJECT_TITLE"] = "fu.pro.t";
+    FundsSearchFields["FUND_AMOUNT"] = "fu.am";
+    FundsSearchFields["FUNDER_ORGANISATION_NAME"] = "fu.org.n";
+    FundsSearchFields["FUND_TYPE"] = "fu.ty";
+})(FundsSearchFields = exports.FundsSearchFields || (exports.FundsSearchFields = {}));
+var FundsSortFields;
+(function (FundsSortFields) {
+    FundsSortFields["FUND_START_DATE"] = "fu.sd";
+    FundsSortFields["FUND_END_DATE"] = "fu.ed";
+    FundsSortFields["FUND_AMOUNT"] = "fu.am";
+    FundsSortFields["FUND_TYPE"] = "fu.ty";
+    FundsSortFields["RELEVANCE"] = "score";
+})(FundsSortFields = exports.FundsSortFields || (exports.FundsSortFields = {}));
+var OutcomesSortFields;
+(function (OutcomesSortFields) {
+    OutcomesSortFields["RELEVANCE"] = "score";
+})(OutcomesSortFields = exports.OutcomesSortFields || (exports.OutcomesSortFields = {}));
+var KeyFindingsSearchFields;
+(function (KeyFindingsSearchFields) {
+    KeyFindingsSearchFields["PROJECT_ID"] = "kf.p";
+    KeyFindingsSearchFields["DESCRIPTION"] = "kf.d";
+    KeyFindingsSearchFields["SECTOR"] = "kf.s";
+    KeyFindingsSearchFields["EXPLOITATION_PATHWAYS"] = "kf.ep";
+    KeyFindingsSearchFields["NON_ACADEMIC_USERS"] = "kf.nau";
+    KeyFindingsSearchFields["OUTCOME_ID"] = "kf.oid";
+    KeyFindingsSearchFields["GRANT_REF"] = "kf.gref";
+})(KeyFindingsSearchFields = exports.KeyFindingsSearchFields || (exports.KeyFindingsSearchFields = {}));
+var KeyFindingsSortFields;
+(function (KeyFindingsSortFields) {
+    KeyFindingsSortFields["RELEVANCE"] = "score";
+})(KeyFindingsSortFields = exports.KeyFindingsSortFields || (exports.KeyFindingsSortFields = {}));
+var ImpactSummariesSearchFields;
+(function (ImpactSummariesSearchFields) {
+    ImpactSummariesSearchFields["PROJECT_ID"] = "is.p";
+    ImpactSummariesSearchFields["TITLE"] = "is.t";
+    ImpactSummariesSearchFields["DESCRIPTION"] = "is.d";
+    ImpactSummariesSearchFields["SECTOR"] = "is.s";
+    ImpactSummariesSearchFields["BENEFICIARIES"] = "is.ben";
+    ImpactSummariesSearchFields["CONTRIBUTION_METHOD"] = "is.cm";
+    ImpactSummariesSearchFields["IMPACT_TYPES"] = "is.it";
+    ImpactSummariesSearchFields["SUMMARY"] = "is.sum";
+    ImpactSummariesSearchFields["OUTCOME_ID"] = "is.oid";
+    ImpactSummariesSearchFields["GRANT_REF"] = "is.gref";
+})(ImpactSummariesSearchFields = exports.ImpactSummariesSearchFields || (exports.ImpactSummariesSearchFields = {}));
+var ImpactSummariesSortFields;
+(function (ImpactSummariesSortFields) {
+    ImpactSummariesSortFields["RELEVANCE"] = "score";
+})(ImpactSummariesSortFields = exports.ImpactSummariesSortFields || (exports.ImpactSummariesSortFields = {}));
+var PublicationsSearchFields;
+(function (PublicationsSearchFields) {
+    PublicationsSearchFields["PROJECT_ID"] = "pub.p";
+    PublicationsSearchFields["TITLE"] = "pub.t";
+    PublicationsSearchFields["ABSTRACT"] = "pub.a";
+    PublicationsSearchFields["PROJECT_TITLE"] = "pub.pr.t";
+    PublicationsSearchFields["ISBN"] = "pub.isbn";
+    PublicationsSearchFields["ISSN"] = "pub.issn";
+    PublicationsSearchFields["PARENT_PUBLICATION"] = "pub.jt";
+    PublicationsSearchFields["PUBMED_ID"] = "pub.pmid";
+    PublicationsSearchFields["DOI"] = "pub.doi";
+    PublicationsSearchFields["OUTCOME_ID"] = "pub.oid";
+    PublicationsSearchFields["GRANT_REF"] = "pub.gref";
+})(PublicationsSearchFields = exports.PublicationsSearchFields || (exports.PublicationsSearchFields = {}));
+var PublicationsSortFields;
+(function (PublicationsSortFields) {
+    PublicationsSortFields["DATE"] = "pub.date";
+    PublicationsSortFields["RELEVANCE"] = "score";
+})(PublicationsSortFields = exports.PublicationsSortFields || (exports.PublicationsSortFields = {}));
+var CollaborationsSearchFields;
+(function (CollaborationsSearchFields) {
+    CollaborationsSearchFields["PROJECT_ID"] = "col.p";
+    CollaborationsSearchFields["IMPACT"] = "col.i";
+    CollaborationsSearchFields["DESCRIPTION"] = "col.d";
+    CollaborationsSearchFields["SECTOR"] = "col.s";
+    CollaborationsSearchFields["DEPARTMENT"] = "col.dept";
+    CollaborationsSearchFields["ORGANISATION"] = "col.org";
+    CollaborationsSearchFields["PARTNER_CONTRIBUTION"] = "col.pc";
+    CollaborationsSearchFields["PRINCIPAL_INVESTIGATOR_CONTRIBUTION"] = "col.pic";
+    CollaborationsSearchFields["OUTCOME_ID"] = "col.oid";
+    CollaborationsSearchFields["GRANT_REF"] = "col.gref";
+})(CollaborationsSearchFields = exports.CollaborationsSearchFields || (exports.CollaborationsSearchFields = {}));
+var CollaborationsSortFields;
+(function (CollaborationsSortFields) {
+    CollaborationsSortFields["START_DATE"] = "col.std";
+    CollaborationsSortFields["RELEVANCE"] = "score";
+})(CollaborationsSortFields = exports.CollaborationsSortFields || (exports.CollaborationsSortFields = {}));
