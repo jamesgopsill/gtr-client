@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
       - name: Publishing Package
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
       #- run: yarn
