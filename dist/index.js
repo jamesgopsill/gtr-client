@@ -1,40 +1,21 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.GtrClient = exports.ResponseError = void 0;
-const cross_fetch_1 = require("cross-fetch");
-const methods_1 = require("./methods");
-const response_error_1 = require("./response-error");
-__exportStar(require("./interfaces"), exports);
-var response_error_2 = require("./response-error");
-Object.defineProperty(exports, "ResponseError", { enumerable: true, get: function () { return response_error_2.ResponseError; } });
-// The CtrClient class to construct the API from
-class GtrClient {
+import { fetch } from "cross-fetch";
+import { getObjectMethods, getObjectsMethods } from "./methods";
+export * from "./interfaces";
+// The GtrClient class to construct the API from
+export class GtrClient {
+    baseUrl = "https://gtr.ukri.org/gtr/api";
+    debug;
     constructor(debug = false) {
-        this.baseUrl = "https://gtr.ukri.org/gtr/api";
         this.debug = debug;
         // Create the get objects methods
-        for (const method of methods_1.getObjectsMethods) {
+        for (const method of getObjectsMethods) {
             //@ts-ignore: Not exactly sure why but it's something about the key value (ts(7053))
             this[method.name] = (params) => {
                 return this.getObjects(method.path, params);
             };
         }
         // Add the get object methods
-        for (const method of methods_1.getObjectMethods) {
+        for (const method of getObjectMethods) {
             //@ts-ignore
             this[method.name] = (id) => {
                 return this.getObject(id, method.path);
@@ -71,13 +52,13 @@ class GtrClient {
                 Accept: "application/vnd.rcuk.gtr.json-v7",
             },
         };
-        return (0, cross_fetch_1.fetch)(url, config).then(async (r) => {
+        return fetch(url, config).then(async (r) => {
             if (r.ok) {
                 const json = await r.json();
                 this.recursiveProcessObjectDates(json);
-                return json;
+                r.data = json;
             }
-            throw new response_error_1.ResponseError(r);
+            return r;
         });
     }
     recursiveProcessObjectDates(obj) {
@@ -116,4 +97,3 @@ class GtrClient {
         return this.get(url);
     }
 }
-exports.GtrClient = GtrClient;

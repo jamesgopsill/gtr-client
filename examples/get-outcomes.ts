@@ -1,13 +1,11 @@
-import { GetOutcomesQuery, GtrClient } from "../src"
+import { OutcomesQuery, GtrClient } from "@jamesgopsill/gtr-client"
 
 const client = new GtrClient(true)
 
-const query: GetOutcomesQuery = {
+const query: OutcomesQuery = {
 	query: "experiment",
 	pageSize: 10,
 }
 
-client
-	.getOutcomes(query)
-	.then((res) => console.log(res))
-	.catch((err) => console.log(err))
+const r = await client.getOutcomes(query)
+if (r.ok) console.log(r.data)

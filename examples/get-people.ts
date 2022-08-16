@@ -1,14 +1,16 @@
-import { GetPeopleQuery, GetPeopleSearchFields, GtrClient } from "../src"
+import {
+	PeopleQuery,
+	PeopleSearchFields,
+	GtrClient,
+} from "@jamesgopsill/gtr-client"
 
 const client = new GtrClient()
 
-const query: GetPeopleQuery = {
+const query: PeopleQuery = {
 	query: "Bob",
-	searchFields: [GetPeopleSearchFields.FIRST_NAME_FAMILY_NAME],
+	searchFields: [PeopleSearchFields.FIRST_NAME_FAMILY_NAME],
 	pageSize: 10,
 }
 
-client
-	.getPeople(query)
-	.then((res) => console.log(res))
-	.catch((err) => console.log(err))
+const r = await client.getPeople(query)
+if (r.ok) console.log(r.data)

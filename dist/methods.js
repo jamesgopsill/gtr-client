@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAssociatedObjectsMethods = exports.getObjectMethods = exports.getObjectsMethods = void 0;
-exports.getObjectsMethods = [
+export const getObjectsMethods = [
     {
         name: "getPeople",
         path: "persons",
@@ -67,7 +64,7 @@ exports.getObjectsMethods = [
         path: "outcomes/disseminations",
     },
 ];
-exports.getObjectMethods = [
+export const getObjectMethods = [
     {
         name: "getPerson",
         path: "persons",
@@ -129,7 +126,7 @@ exports.getObjectMethods = [
         path: "outcomes/disseminations",
     },
 ];
-exports.getAssociatedObjectsMethods = [
+export const getAssociatedObjectsMethods = [
     {
         name: "getPersonProjects",
         path: "persons/:id/projects",

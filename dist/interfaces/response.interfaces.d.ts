@@ -1,9 +1,109 @@
-export interface Paginated {
-    page: number;
-    size: number;
-    totalPages: number;
-    totalSize: number;
+export interface PaginatedResponse extends Response {
+    data: {
+        page: number;
+        size: number;
+        totalPages: number;
+        totalSize: number;
+    };
 }
+export interface SingleObjectResponse<T> extends Response {
+    data: T;
+}
+export declare type PaginatedPersons = PaginatedResponse & {
+    data: {
+        person: Person[];
+    };
+};
+export declare type PaginatedProjects = PaginatedResponse & {
+    data: {
+        project: Project[];
+    };
+};
+export declare type PaginatedOrganisations = PaginatedResponse & {
+    data: {
+        organisation: Organisation[];
+    };
+};
+export declare type PaginatedFunds = PaginatedResponse & {
+    data: {
+        fund: Fund[];
+    };
+};
+export declare type PaginatedOutcomes = PaginatedResponse & {
+    data: {
+        artisticAndCreativeProduct: any[];
+        collaboration: Collaboration[];
+        dissemination: Dissemination[];
+        exploitation: any[];
+        furtherFunding: Fund[];
+        impactSummary: ImpactSummary[];
+        intellectualProperty: IntellectualProperty[];
+        keyFinding: KeyFinding[];
+        policyInfluence: PolicyInfluence[];
+        product: Product[];
+        researchDatabaseAndModel: any[];
+        researchMaterial: any[];
+        softwareAndTechnicalProduct: any[];
+        spinOut: SpinOut[];
+        otherResearchItem: any[];
+        publication: Publication[];
+    };
+};
+export declare type PaginatedKeyFindings = PaginatedResponse & {
+    data: {
+        keyFinding: KeyFinding[];
+    };
+};
+export declare type PaginatedImpactSummaries = PaginatedResponse & {
+    data: {
+        impactSummary: ImpactSummary[];
+    };
+};
+export declare type PaginatedPublications = PaginatedResponse & {
+    data: {
+        publication: Publication[];
+    };
+};
+export declare type PaginatedCollaborations = PaginatedResponse & {
+    data: {
+        collaboration: Collaboration[];
+    };
+};
+export declare type PaginatedIntellectualProperties = PaginatedResponse & {
+    data: {
+        intellectualProperty: IntellectualProperty[];
+    };
+};
+export declare type PaginatedPolicyInfluences = PaginatedResponse & {
+    data: {
+        policyInfluence: PolicyInfluence[];
+    };
+};
+export declare type PaginatedProducts = PaginatedResponse & {
+    data: {
+        product: Product[];
+    };
+};
+export declare type PaginatedResearchMaterials = PaginatedResponse & {
+    data: {
+        researchMaterial: ResearchMaterial[];
+    };
+};
+export declare type PaginatedFurtherFunding = PaginatedResponse & {
+    data: {
+        furtherFunding: FurtherFunding[];
+    };
+};
+export declare type PaginatedSpinOuts = PaginatedResponse & {
+    data: {
+        spinOut: SpinOut[];
+    };
+};
+export declare type PaginatedDissemination = PaginatedResponse & {
+    data: {
+        dissemination: Dissemination[];
+    };
+};
 export interface Link {
     href: string;
     rel: string;
@@ -23,71 +123,6 @@ export interface Address {
     region: string;
     country: string;
     type: string;
-}
-export interface PaginatedPersons extends Paginated {
-    person: Person[];
-}
-export interface PaginatedProjects extends Paginated {
-    project: Project[];
-}
-export interface PaginatedOrganisations extends Paginated {
-    organisation: Organisation[];
-}
-export interface PaginatedFunds extends Paginated {
-    fund: Fund[];
-}
-export interface Outcomes {
-    artisticAndCreativeProduct: any[];
-    collaboration: Collaboration[];
-    dissemination: Dissemination[];
-    exploitation: any[];
-    furtherFunding: Fund[];
-    impactSummary: ImpactSummary[];
-    intellectualProperty: IntellectualProperty[];
-    keyFinding: KeyFinding[];
-    policyInfluence: PolicyInfluence[];
-    product: Product[];
-    researchDatabaseAndModel: any[];
-    researchMaterial: any[];
-    softwareAndTechnicalProduct: any[];
-    spinOut: SpinOut[];
-    otherResearchItem: any[];
-    publication: Publication[];
-}
-export interface PaginatedOutcomes extends Paginated, Outcomes {
-}
-export interface PaginatedKeyFindings extends Paginated {
-    keyFinding: KeyFinding[];
-}
-export interface PaginatedImpactSummaries extends Paginated {
-    impactSummary: ImpactSummary[];
-}
-export interface PaginatedPublications extends Paginated {
-    publication: Publication[];
-}
-export interface PaginatedCollaborations extends Paginated {
-    collaboration: Collaboration[];
-}
-export interface PaginatedIntellectualProperties extends Paginated {
-    intellectualProperty: IntellectualProperty[];
-}
-export interface PaginatedPolicyInfluences extends Paginated {
-    policyInfluence: PolicyInfluence[];
-}
-export interface PaginatedProducts extends Paginated {
-    product: Product[];
-}
-export interface PaginatedResearchMaterials extends Paginated {
-    researchMaterial: ResearchMaterial[];
-}
-export interface PaginatedFurtherFunding extends Paginated {
-    furtherFunding: FurtherFunding[];
-}
-export interface PaginatedSpinOuts extends Paginated {
-    spinOut: SpinOut[];
-}
-export interface PaginatedDissemination extends Paginated {
-    dissemination: Dissemination[];
 }
 export interface Person {
     links: Links[];
@@ -149,6 +184,24 @@ export interface Project {
     rcukProgrammes: {
         rcukProgramme: any[];
     };
+}
+export interface Outcomes {
+    artisticAndCreativeProduct: any[];
+    collaboration: Collaboration[];
+    dissemination: Dissemination[];
+    exploitation: any[];
+    furtherFunding: Fund[];
+    impactSummary: ImpactSummary[];
+    intellectualProperty: IntellectualProperty[];
+    keyFinding: KeyFinding[];
+    policyInfluence: PolicyInfluence[];
+    product: Product[];
+    researchDatabaseAndModel: any[];
+    researchMaterial: any[];
+    softwareAndTechnicalProduct: any[];
+    spinOut: SpinOut[];
+    otherResearchItem: any[];
+    publication: Publication[];
 }
 export interface Organisation {
     links: Links;

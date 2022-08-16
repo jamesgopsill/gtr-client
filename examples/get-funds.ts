@@ -1,14 +1,16 @@
-import { GetFundsQuery, GetFundsSearchFields, GtrClient } from "../src"
+import {
+	GtrClient,
+	FundsSearchFields,
+	FundsQuery,
+} from "@jamesgopsill/gtr-client"
 
 const client = new GtrClient(true)
 
-const query: GetFundsQuery = {
+const query: FundsQuery = {
 	query: "epsrc",
-	searchFields: [GetFundsSearchFields.FUNDER_ORGANISATION_NAME],
+	searchFields: [FundsSearchFields.FUNDER_ORGANISATION_NAME],
 	pageSize: 10,
 }
 
-client
-	.getFunds(query)
-	.then((res) => console.log(res))
-	.catch((err) => console.log(err))
+const r = await client.getFunds(query)
+if (r.ok) console.log(r.data)

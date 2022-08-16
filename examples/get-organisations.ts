@@ -1,18 +1,16 @@
 import {
-	GetOrganisationsQuery,
-	GetOrganisationsSearchFields,
+	OrganisationsQuery,
+	OrganisationsSearchFields,
 	GtrClient,
-} from "../src"
+} from "@jamesgopsill/gtr-client"
 
 const client = new GtrClient(true)
 
-const query: GetOrganisationsQuery = {
+const query: OrganisationsQuery = {
 	query: "bristol",
-	searchFields: [GetOrganisationsSearchFields.ORGANISATION_NAME],
+	searchFields: [OrganisationsSearchFields.ORGANISATION_NAME],
 	pageSize: 10,
 }
 
-client
-	.getOrganisations(query)
-	.then((res) => console.log(res))
-	.catch((err) => console.log(err))
+const r = await client.getOrganisations(query)
+if (r.ok) console.log(r.data)

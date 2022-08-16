@@ -1,14 +1,16 @@
-import { GetProjectsQuery, GetProjectsSearchFields, GtrClient } from "../src"
+import {
+	ProjectsQuery,
+	ProjectsSearchFields,
+	GtrClient,
+} from "@jamesgopsill/gtr-client"
 
 const client = new GtrClient()
 
-const query: GetProjectsQuery = {
+const query: ProjectsQuery = {
 	query: "manufacturing",
-	searchFields: [GetProjectsSearchFields.RESEARCH_TOPICS],
+	searchFields: [ProjectsSearchFields.RESEARCH_TOPICS],
 	pageSize: 10,
 }
 
-client
-	.getProjects(query)
-	.then((res) => console.log(res))
-	.catch((err) => console.log(err))
+const r = await client.getProjects(query)
+if (r.ok) console.log(r.data)

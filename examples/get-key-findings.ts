@@ -1,18 +1,16 @@
 import {
-	GetKeyFindingsQuery,
-	GetKeyFindingsSearchFields,
+	KeyFindingsQuery,
+	KeyFindingsSearchFields,
 	GtrClient,
-} from "../src"
+} from "@jamesgopsill/gtr-client"
 
 const client = new GtrClient(true)
 
-const query: GetKeyFindingsQuery = {
+const query: KeyFindingsQuery = {
 	query: "behaviour",
-	searchFields: [GetKeyFindingsSearchFields.DESCRIPTION],
+	searchFields: [KeyFindingsSearchFields.DESCRIPTION],
 	pageSize: 10,
 }
 
-client
-	.getKeyFindings(query)
-	.then((res) => console.log(res))
-	.catch((err) => console.log(err))
+const r = await client.getKeyFindings(query)
+if (r.ok) console.log(r.data)
