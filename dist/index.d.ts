@@ -1,5 +1,5 @@
-import * as i from "./interfaces";
-export * from "./interfaces";
+import * as i from "./interfaces/index.js";
+export * from "./interfaces/index.js";
 export declare class GtrClient {
     protected baseUrl: string;
     debug: boolean;

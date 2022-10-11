@@ -10,7 +10,8 @@
 		"module": "ES2022",
 		"target": "ES2022",
 		"moduleResolution": "node",
-		"lib": ["DOM"]
+		"lib": ["DOM"],
+		"newLine": "lf"
 	},
 	"include": ["src/"],
 	"ts-node": {

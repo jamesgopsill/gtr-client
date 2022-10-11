@@ -25,13 +25,13 @@ This client is a fully-typed [typescript](https://www.typescriptlang.org/) clien
 To install the package, use the following code (npm, pnpm or yarn).
 
 ```
-pnpm install jamesgopsill/gtr-client
+pnpm install @jamesgopsill/gtr-client
 ```
 
 You can then use in your code via by importing
 
 ```typescript
-import { GtrClient, ProjectsQuery, ProjectsSearchFields } from "jamesgopsill/gtr-client"
+import { GtrClient, ProjectsQuery, ProjectsSearchFields } from "@jamesgopsill/gtr-client"
 
 const client = new GtrClient()
 
@@ -63,11 +63,13 @@ The docs have been produced using [TypeDoc](https://typedoc.org/) and can be acc
 | 0.8.0 | Refactored again to use programmatically defined functions. | ✔ |
 | 0.9.0 | Custom Filtering Param Interfaces | ✔ |
 | 0.11.0 | Changing how the response is handled. | ✔ |
-| 1.0.0 | Spec complete | |
+| 1.0.0 | Spec complete. | ✔ |
 
 ## Contributing
 
 We would love to have additional contributors to the project to help us maintain and add functionality to the project. Please use `pnpm pre-add` before committing to the repository.
+
+Note. if wanting to run the examples as you develop the repo. Use `pnpm link .` to link the repo to your available packages.
 
 ## Support the Project
 

@@ -1,8 +1,8 @@
 import { fetch } from "cross-fetch"
-import * as i from "./interfaces"
-import { getObjectMethods, getObjectsMethods } from "./methods"
+import * as i from "./interfaces/index.js"
+import { getObjectMethods, getObjectsMethods } from "./methods.js"
 
-export * from "./interfaces"
+export * from "./interfaces/index.js"
 
 // The GtrClient class to construct the API from
 export class GtrClient {

@@ -1,5 +1,5 @@
-import { GtrClient } from "../src"
-import { getObjectsMethods } from "../src/methods"
+import { GtrClient } from "../src/index.js"
+import { getObjectsMethods } from "../src/methods.js"
 
 const client = new GtrClient(false)
 

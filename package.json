@@ -30,17 +30,18 @@
   },
   "homepage": "https://jamesgopsill.github.io/gtr-client",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --",
+    "test": "pnpm jest",
     "build": "tsc",
     "build:docs": "typedoc",
     "format": "prettier --write src/**/* && prettier --write __tests__/**/* && prettier --write examples/**/*",
-    "pre-add": "pnpm format && pnpm build:docs && node utils/clean-dist.mjs && pnpm tsc && node utils/clean-crlf.mjs && pnpm test",
-    "example": "node --experimental-specifier-resolution=node --loader ts-node/esm examples/get-funds.ts"
+    "pre-add": "pnpm format && pnpm build:docs && node utils/clean-dist.mjs && pnpm build && node utils/clean-crlf.mjs && pnpm test",
+    "example": "ts-node examples/get-funds.ts"
   },
   "dependencies": {
     "cross-fetch": "^3.1.4"
   },
   "devDependencies": {
+    "@jest/types": "^28.1.3",
     "@tsconfig/node16": "^1.0.2",
     "@types/glob": "^7.2.0",
     "@types/jest": "^27.0.3",

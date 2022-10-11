@@ -1,6 +1,6 @@
 import { fetch } from "cross-fetch";
-import { getObjectMethods, getObjectsMethods } from "./methods";
-export * from "./interfaces";
+import { getObjectMethods, getObjectsMethods } from "./methods.js";
+export * from "./interfaces/index.js";
 // The GtrClient class to construct the API from
 export class GtrClient {
     baseUrl = "https://gtr.ukri.org/gtr/api";
