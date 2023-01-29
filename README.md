@@ -8,7 +8,7 @@
 
 ![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/JamesGopsill/gtr-client)
 
-This client is a fully-typed [typescript](https://www.typescriptlang.org/) client for the [UKRI's Gateway to Research GtR-2 API](https://gtr.ukri.org/). It runs both on server (Node.js v18+) and client-side (Browser) javascript providing both ESM and CommonJS modules.
+This client is a fully-typed [Typescript](https://www.typescriptlang.org/) client for the [UKRI's Gateway to Research GtR-2 API](https://gtr.ukri.org/). It runs both on server (Node.js v18+) and client-side (Browser) javascript providing both ESM and CommonJS modules.
 
 ## Contents
 
@@ -122,6 +122,7 @@ If you like this project, please consider sponsoring the developers so they can 
 ## References
 
 - [UKRI Gateway to Research](https://gtr.ukri.org/)
+- [Hybrid ESM / CommonJS Module](https://www.sensedeep.com/blog/posts/2021/how-to-create-single-source-npm-module.html)
 - [Git AutoCLRF](https://tanutaran.medium.com/solving-git-lf-will-be-replaced-by-crlf-7ca84eb0aad4)
 - [API Client Template](https://github.com/ilyamkin/dev-to-js)
 - [Git CRLF LF issues](https://stackoverflow.com/questions/170961/whats-the-strategy-for-handling-crlf-carriage-return-line-feed-with-git)
