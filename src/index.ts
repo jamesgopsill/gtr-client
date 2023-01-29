@@ -1,5 +1,4 @@
-import { fetch } from "cross-fetch"
-import * as i from "./interfaces/index.js"
+import type * as i from "./interfaces/index.js"
 import { getObjectMethods, getObjectsMethods } from "./methods.js"
 
 export * from "./interfaces/index.js"
@@ -27,10 +26,7 @@ export class GtrClient {
 		}
 	}
 
-	protected async get(
-		url: string,
-		params: { [name: string]: any } = {}
-	): Promise<any> {
+	protected async get(url: string, params: { [name: string]: any } = {}) {
 		// Perform key conversion
 		let requestParams: any = {}
 		const keyConversions = {
@@ -64,14 +60,11 @@ export class GtrClient {
 			},
 		}
 
-		return fetch(url, config).then(async (r: any) => {
-			if (r.ok) {
-				const json = await r.json()
-				this.recursiveProcessObjectDates(json)
-				r.data = json
-			}
-			return r
-		})
+		const r: i.ResponseWithDataAttribute = await fetch(url, config)
+		const json = await r.json()
+		this.recursiveProcessObjectDates(json)
+		r.data = json
+		return r
 	}
 
 	protected recursiveProcessObjectDates(obj: any) {
