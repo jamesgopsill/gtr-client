@@ -1,42 +1,49 @@
-export interface PaginatedResponse extends Response {
-	data: {
-		page: number
-		size: number
-		totalPages: number
-		totalSize: number
-	}
+export type PaginatedResponse<T> =
+	| ({
+			ok: true
+			data: T
+	  } & Response)
+	| ({
+			ok: false
+			data: ErrorMessage
+	  } & Response)
+
+export interface ErrorMessage {
+	text: string
+	timestamp: number
 }
 
-export interface SingleObjectResponse<T> extends Response {
-	data: T
+export interface GenericPaginatedData {
+	page: number
+	size: number
+	totalPages: number
+	totalSize: number
 }
 
-export type PaginatedPersons = PaginatedResponse & {
-	data: {
-		person: Person[]
-	}
-}
+export type SingleObjectResponse<T> =
+	| ({
+			ok: true
+			data: T
+	  } & Response)
+	| ({
+			ok: false
+			data: null
+	  } & Response)
 
-export type PaginatedProjects = PaginatedResponse & {
-	data: {
-		project: Project[]
-	}
-}
-
-export type PaginatedOrganisations = PaginatedResponse & {
-	data: {
-		organisation: Organisation[]
-	}
-}
-
-export type PaginatedFunds = PaginatedResponse & {
-	data: {
-		fund: Fund[]
-	}
-}
-
-export type PaginatedOutcomes = PaginatedResponse & {
-	data: {
+export type PaginatedPersons = PaginatedResponse<
+	GenericPaginatedData & { person: Person[] }
+>
+export type PaginatedProjects = PaginatedResponse<
+	GenericPaginatedData & { project: Project[] }
+>
+export type PaginatedOrganisations = PaginatedResponse<
+	GenericPaginatedData & { organisations: Organisation[] }
+>
+export type PaginatedFunds = PaginatedResponse<
+	GenericPaginatedData & { fund: Fund[] }
+>
+export type PaginatedOutcomes = PaginatedResponse<
+	GenericPaginatedData & {
 		artisticAndCreativeProduct: any[]
 		collaboration: Collaboration[]
 		dissemination: Dissemination[]
@@ -54,73 +61,40 @@ export type PaginatedOutcomes = PaginatedResponse & {
 		otherResearchItem: any[]
 		publication: Publication[]
 	}
-}
-
-export type PaginatedKeyFindings = PaginatedResponse & {
-	data: {
-		keyFinding: KeyFinding[]
-	}
-}
-
-export type PaginatedImpactSummaries = PaginatedResponse & {
-	data: {
-		impactSummary: ImpactSummary[]
-	}
-}
-
-export type PaginatedPublications = PaginatedResponse & {
-	data: {
-		publication: Publication[]
-	}
-}
-
-export type PaginatedCollaborations = PaginatedResponse & {
-	data: {
-		collaboration: Collaboration[]
-	}
-}
-
-export type PaginatedIntellectualProperties = PaginatedResponse & {
-	data: {
-		intellectualProperty: IntellectualProperty[]
-	}
-}
-
-export type PaginatedPolicyInfluences = PaginatedResponse & {
-	data: {
-		policyInfluence: PolicyInfluence[]
-	}
-}
-
-export type PaginatedProducts = PaginatedResponse & {
-	data: {
-		product: Product[]
-	}
-}
-
-export type PaginatedResearchMaterials = PaginatedResponse & {
-	data: {
-		researchMaterial: ResearchMaterial[]
-	}
-}
-
-export type PaginatedFurtherFunding = PaginatedResponse & {
-	data: {
-		furtherFunding: FurtherFunding[]
-	}
-}
-
-export type PaginatedSpinOuts = PaginatedResponse & {
-	data: {
-		spinOut: SpinOut[]
-	}
-}
-
-export type PaginatedDissemination = PaginatedResponse & {
-	data: {
-		dissemination: Dissemination[]
-	}
-}
+>
+export type PaginatedKeyFindings = PaginatedResponse<
+	GenericPaginatedData & { keyFinding: KeyFinding[] }
+>
+export type PaginatedImpactSummaries = PaginatedResponse<
+	GenericPaginatedData & { impactSummary: ImpactSummary[] }
+>
+export type PaginatedPublications = PaginatedResponse<
+	GenericPaginatedData & { publication: Publication[] }
+>
+export type PaginatedCollaborations = PaginatedResponse<
+	GenericPaginatedData & { collaboration: Collaboration[] }
+>
+export type PaginatedIntellectualProperties = PaginatedResponse<
+	GenericPaginatedData & { intellectualProperty: IntellectualProperty[] }
+>
+export type PaginatedPolicyInfluences = PaginatedResponse<
+	GenericPaginatedData & { policyInfluence: PolicyInfluence[] }
+>
+export type PaginatedProducts = PaginatedResponse<
+	GenericPaginatedData & { product: Product[] }
+>
+export type PaginatedResearchMaterials = PaginatedResponse<
+	GenericPaginatedData & { researchMaterial: ResearchMaterial[] }
+>
+export type PaginatedFurtherFunding = PaginatedResponse<
+	GenericPaginatedData & { furtherFunding: FurtherFunding[] }
+>
+export type PaginatedSpinOuts = PaginatedResponse<
+	GenericPaginatedData & { spinOut: SpinOut[] }
+>
+export type PaginatedDissemination = PaginatedResponse<
+	GenericPaginatedData & { dissemination: Dissemination[] }
+>
 
 export interface Link {
 	href: string

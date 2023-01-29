@@ -1,7 +1,6 @@
 # A TS client for the GtR API
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/JamesGopsill/gtr-client)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/JamesGopsill/gtr-client/client-tests?label=client-tests&logo=github&style=flat)
 ![GitHub repo size](https://img.shields.io/github/repo-size/JamesGopsill/gtr-client)
 ![GitHub](https://img.shields.io/github/license/JamesGopsill/gtr-client)
 
@@ -9,7 +8,7 @@
 
 ![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/JamesGopsill/gtr-client)
 
-This client is a fully-typed [typescript](https://www.typescriptlang.org/) client for the [UKRI's Gateway to Research GtR-2 API](https://gtr.ukri.org/). It runs both on server (Node.js) and client-side (Browser) javascript.
+This client is a fully-typed [typescript](https://www.typescriptlang.org/) client for the [UKRI's Gateway to Research GtR-2 API](https://gtr.ukri.org/). It runs both on server (Node.js v18+) and client-side (Browser) javascript providing both ESM and CommonJS modules.
 
 ## Contents
 
@@ -28,22 +27,66 @@ To install the package, use the following code (npm, pnpm or yarn).
 pnpm install @jamesgopsill/gtr-client
 ```
 
-You can then use in your code via by importing
+You can then use in your code:
+
+**Typescript**
 
 ```typescript
-import { GtrClient, ProjectsQuery, ProjectsSearchFields } from "@jamesgopsill/gtr-client"
+import {
+	FundsQuery,
+	FundsSearchFields,
+	GtrClient,
+} from "@jamesgopsill/gtr-client"
 
-const client = new GtrClient()
+const client = new GtrClient(true)
 
-const query: ProjectsQuery = {
-	query: "manufacturing",
-	searchFields: [GetProjectsSearchFields.RESEARCH_TOPICS],
-	pageSize: 10
+const query: FundsQuery = {
+	query: "epsrc",
+	searchFields: [FundsSearchFields.FUNDER_ORGANISATION_NAME],
+	pageSize: 10,
 }
 
-const r = await client.getProjects(query)
+const r = await client.getFunds(query)
 if (r.ok) console.log(r.data)
 ```
+
+**Javascript (ESM)**
+```javascript
+import { GtrClient, FundsSearchFields } from "@jamesgopsill/gtr-client"
+
+const client = new GtrClient(true)
+
+const query = {
+	query: "epsrc",
+	searchFields: [FundsSearchFields.FUNDER_ORGANISATION_NAME],
+	pageSize: 10,
+}
+
+const r = await client.getFunds(query)
+if (r.ok) console.log(r.data)
+```
+
+**Javascript (CommonJS)**
+```javascript
+const gtr = require("@jamesgopsill/gtr-client")
+
+const performQuery = async () => {
+    const client = new gtr.GtrClient(true)
+
+    const query = {
+        query: "epsrc",
+        searchFields: [gtr.FundsSearchFields.FUNDER_ORGANISATION_NAME],
+        pageSize: 10,
+    }
+
+    const r = await client.getFunds(query)
+    if (r.ok) console.log(r.data)
+}
+
+performQuery()
+```
+
+
 
 ## Docs
 
@@ -64,6 +107,7 @@ The docs have been produced using [TypeDoc](https://typedoc.org/) and can be acc
 | 0.9.0 | Custom Filtering Param Interfaces | ✔ |
 | 0.11.0 | Changing how the response is handled. | ✔ |
 | 1.0.0 | Spec complete. | ✔ |
+| 1.1.0 | Updating types and supporting ESM and CommonJS. | ✔ |
 
 ## Contributing
 
