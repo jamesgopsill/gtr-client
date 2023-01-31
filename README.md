@@ -51,6 +51,7 @@ if (r.ok) console.log(r.data)
 ```
 
 **Javascript (ESM)**
+
 ```javascript
 import { GtrClient, FundsSearchFields } from "@jamesgopsill/gtr-client"
 
@@ -67,26 +68,25 @@ if (r.ok) console.log(r.data)
 ```
 
 **Javascript (CommonJS)**
+
 ```javascript
 const gtr = require("@jamesgopsill/gtr-client")
 
 const performQuery = async () => {
-    const client = new gtr.GtrClient(true)
+	const client = new gtr.GtrClient(true)
 
-    const query = {
-        query: "epsrc",
-        searchFields: [gtr.FundsSearchFields.FUNDER_ORGANISATION_NAME],
-        pageSize: 10,
-    }
+	const query = {
+		query: "epsrc",
+		searchFields: [gtr.FundsSearchFields.FUNDER_ORGANISATION_NAME],
+		pageSize: 10,
+	}
 
-    const r = await client.getFunds(query)
-    if (r.ok) console.log(r.data)
+	const r = await client.getFunds(query)
+	if (r.ok) console.log(r.data)
 }
 
 performQuery()
 ```
-
-
 
 ## Docs
 
@@ -94,20 +94,20 @@ The docs have been produced using [TypeDoc](https://typedoc.org/) and can be acc
 
 ## Roadmap
 
-| Version | Content | Status |
-| --- | --- | --- |
-| 0.0.1 | Repo up and running | ✔ |
-| 0.2.0 | `/funds` implemented. | ✔ |
-| 0.3.0 | `/organisations` implemented. | ✔ |
-| 0.4.0 | `/outcomes` implemented. | ✔ |
-| 0.5.0 | `/persons` implemented. | ✔ |
-| 0.6.0 | `/projects` implemented. | ✔ |
-| 0.7.0 | Simplified client using interface conditionals. | ✔ |
-| 0.8.0 | Refactored again to use programmatically defined functions. | ✔ |
-| 0.9.0 | Custom Filtering Param Interfaces | ✔ |
-| 0.11.0 | Changing how the response is handled. | ✔ |
-| 1.0.0 | Spec complete. | ✔ |
-| 1.1.0 | Updating types and supporting ESM and CommonJS. | ✔ |
+| Version | Content                                                     | Status |
+| ------- | ----------------------------------------------------------- | ------ |
+| 0.0.1   | Repo up and running                                         | ✔      |
+| 0.2.0   | `/funds` implemented.                                       | ✔      |
+| 0.3.0   | `/organisations` implemented.                               | ✔      |
+| 0.4.0   | `/outcomes` implemented.                                    | ✔      |
+| 0.5.0   | `/persons` implemented.                                     | ✔      |
+| 0.6.0   | `/projects` implemented.                                    | ✔      |
+| 0.7.0   | Simplified client using interface conditionals.             | ✔      |
+| 0.8.0   | Refactored again to use programmatically defined functions. | ✔      |
+| 0.9.0   | Custom Filtering Param Interfaces                           | ✔      |
+| 0.11.0  | Changing how the response is handled.                       | ✔      |
+| 1.0.0   | Spec complete.                                              | ✔      |
+| 1.1.0   | Updating types and supporting ESM and CommonJS.             | ✔      |
 
 ## Contributing
 
