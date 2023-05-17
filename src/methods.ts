@@ -131,62 +131,62 @@ export const getObjectMethods = [
 export const getAssociatedObjectsMethods = [
 	{
 		name: "getPersonProjects",
-		path: "persons/:id/projects",
+		path: "personss/:id/projects",
 	},
 	{
 		name: "getPersonOrganisations",
-		path: "persons/:id/organisations",
+		path: "personss/:id/organisations",
 	},
 	{
 		name: "getProjectFunds",
-		path: "project/:id/funds",
+		path: "projects/:id/funds",
 	},
 	{
 		name: "getProjectOrganisations",
-		path: "project/:id/organisations",
+		path: "projects/:id/organisations",
 	},
 	{
 		name: "getProjectPersons",
-		path: "project/:id/persons",
+		path: "projects/:id/persons",
 	},
 	{
 		name: "getProjectOutcomes",
-		path: "project/:id/outcomes",
+		path: "projects/:id/outcomes",
 	},
 	{
 		name: "getProjectKeyFindings",
-		path: "project/:id/outcomes/keyfindings",
+		path: "projects/:id/outcomes/keyfindings",
 	},
 	{
 		name: "getProjectImpactSummaries",
-		path: "project/:id/outcomes/impactsummaries",
+		path: "projects/:id/outcomes/impactsummaries",
 	},
 	{
 		name: "getProjectPublications",
-		path: "project/:id/outcomes/publications",
+		path: "projects/:id/outcomes/publications",
 	},
 	{
 		name: "getProjectCollaborations",
-		path: "project/:id/outcomes/collaborations",
+		path: "projects/:id/outcomes/collaborations",
 	},
 	{
 		name: "getProjectIntellectualProperties",
-		path: "project/:id/outcomes/intellectualproperties",
+		path: "projects/:id/outcomes/intellectualproperties",
 	},
 	{
 		name: "getProjectProducts",
-		path: "project/:id/outcomes/products",
+		path: "projects/:id/outcomes/products",
 	},
 	{
 		name: "getProjectResearchMaterials",
-		path: "project/:id/outcomes/researchmaterials",
+		path: "projects/:id/outcomes/researchmaterials",
 	},
 	{
 		name: "getProjectSpinOuts",
-		path: "project/:id/outcomes/spinouts",
+		path: "projects/:id/outcomes/spinouts",
 	},
 	{
 		name: "getProjectDisseminations",
-		path: "project/:id/outcomes/disseminations",
+		path: "projects/:id/outcomes/disseminations",
 	},
 ]

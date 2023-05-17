@@ -37,7 +37,7 @@ export type PaginatedProjects = PaginatedResponse<
 	GenericPaginatedData & { project: Project[] }
 >
 export type PaginatedOrganisations = PaginatedResponse<
-	GenericPaginatedData & { organisations: Organisation[] }
+	GenericPaginatedData & { organisation: Organisation[] }
 >
 export type PaginatedFunds = PaginatedResponse<
 	GenericPaginatedData & { fund: Fund[] }
@@ -95,6 +95,10 @@ export type PaginatedSpinOuts = PaginatedResponse<
 export type PaginatedDissemination = PaginatedResponse<
 	GenericPaginatedData & { dissemination: Dissemination[] }
 >
+
+export type PaginatedProjectOrganisations = GenericPaginatedData & {
+	organisation: Organisation[]
+}
 
 export interface Link {
 	href: string
@@ -202,6 +206,7 @@ export interface Outcomes {
 }
 
 export interface Organisation {
+	name: string
 	links: Links
 	id: string
 	href: string

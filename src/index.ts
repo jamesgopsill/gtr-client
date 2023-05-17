@@ -1,5 +1,9 @@
 import type * as i from "./interfaces/index.js"
-import { getObjectMethods, getObjectsMethods } from "./methods.js"
+import {
+	getAssociatedObjectsMethods,
+	getObjectMethods,
+	getObjectsMethods,
+} from "./methods.js"
 
 export * from "./interfaces/index.js"
 
@@ -12,16 +16,23 @@ export class GtrClient {
 		this.debug = debug
 		// Create the get objects methods
 		for (const method of getObjectsMethods) {
-			//@ts-ignore: Not exactly sure why but it's something about the key value (ts(7053))
+			//@ts-expect-error: Not exactly sure why but it's something about the key value (ts(7053))
 			this[method.name] = (params: {}) => {
 				return this.getObjects(method.path, params)
 			}
 		}
 		// Add the get object methods
 		for (const method of getObjectMethods) {
-			//@ts-ignore
+			//@ts-expect-error
 			this[method.name] = (id: string) => {
 				return this.getObject(id, method.path)
+			}
+		}
+		// Add the get associated obejct methods
+		for (const method of getAssociatedObjectsMethods) {
+			//@ts-expect-error
+			this[method.name] = (id: string) => {
+				return this.getAssociatedObjects(id, method.path)
 			}
 		}
 	}
@@ -60,10 +71,12 @@ export class GtrClient {
 			},
 		}
 
-		const r: i.ResponseWithDataAttribute = await fetch(url, config)
-		const json = await r.json()
-		this.recursiveProcessObjectDates(json)
-		r.data = json
+		const r = (await fetch(url, config)) as i.SingleObjectResponse<any>
+		if (r.ok) {
+			const json = await r.json()
+			this.recursiveProcessObjectDates(json)
+			r.data = json
+		}
 		return r
 	}
 
@@ -203,13 +216,13 @@ export interface GtrClient {
 	) => Promise<i.SingleObjectResponse<i.PaginatedFunds>>
 	getProjectOrganisations: (
 		id: string
-	) => Promise<i.SingleObjectResponse<i.PaginatedOrganisations>>
+	) => Promise<i.SingleObjectResponse<i.PaginatedProjectOrganisations>>
 	getProjectPersons: (
 		id: string
 	) => Promise<i.SingleObjectResponse<i.PaginatedPersons>>
 	getProjectOutcomes: (
 		id: string
-	) => Promise<i.SingleObjectResponse<i.Outcomes>>
+	) => Promise<i.SingleObjectResponse<i.PaginatedOutcomes>>
 	getProjectKeyFindings: (
 		id: string
 	) => Promise<i.SingleObjectResponse<i.PaginatedKeyFindings>>
