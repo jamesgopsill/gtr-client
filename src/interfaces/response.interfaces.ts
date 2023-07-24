@@ -144,7 +144,7 @@ export interface Project {
 			{
 				value: string
 				type: string
-			}
+			},
 		]
 	}
 	title: string
@@ -158,7 +158,7 @@ export interface Project {
 			{
 				id: string
 				text: string
-			}
+			},
 		]
 	}
 	researchActivities: {
@@ -170,7 +170,7 @@ export interface Project {
 				id: string
 				text: string
 				percentage: number
-			}
+			},
 		]
 	}
 	researchTopics: {
@@ -178,7 +178,7 @@ export interface Project {
 			{
 				id: string
 				text: string
-			}
+			},
 		]
 	}
 	rcukProgrammes: {

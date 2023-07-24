@@ -1,12 +1,7 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
-	"include": ["src"],
+	"exclude": ["dist", "docs", "scratch", "examples/**/*"],
 	"compilerOptions": {
-		"lib": ["DOM"],
-		"outDir": "dist/esm",
-		"rootDir": "src",
-		"newLine": "LF",
-		"declaration": true,
 		"module": "ES2020",
 		"moduleResolution": "NodeNext",
 		"target": "ES2020",

@@ -132,7 +132,7 @@ export interface GtrClient {
 
 	// Retrieve information about the organisations on the GtR database.
 	getOrganisations: (
-		params?: i.OrganisationsQuery
+		params?: i.OrganisationsQuery,
 	) => Promise<i.PaginatedOrganisations>
 
 	// Retrieve information about the funds on the GtR database.
@@ -143,111 +143,111 @@ export interface GtrClient {
 
 	// Retrieve information about the key findings on the GtR database.
 	getKeyFindings: (
-		params?: i.KeyFindingsQuery
+		params?: i.KeyFindingsQuery,
 	) => Promise<i.PaginatedKeyFindings>
 
 	// Retrieve information about the impact summaries on the GtR database.
 	getImpactSummaries: (
-		params?: i.ImpactSummariesQuery
+		params?: i.ImpactSummariesQuery,
 	) => Promise<i.PaginatedImpactSummaries>
 	getPublications: (
-		params?: i.PublicationsQuery
+		params?: i.PublicationsQuery,
 	) => Promise<i.PaginatedPublications>
 	getCollaborations: (
-		params?: i.CollaborationsQuery
+		params?: i.CollaborationsQuery,
 	) => Promise<i.PaginatedCollaborations>
 	getIntellectualProperties: (
-		params?: i.IntellectualPropertiesQuery
+		params?: i.IntellectualPropertiesQuery,
 	) => Promise<i.PaginatedIntellectualProperties>
 	getPolicyInfluences: (
-		params?: i.PolicyInfluencesQuery
+		params?: i.PolicyInfluencesQuery,
 	) => Promise<i.PaginatedPolicyInfluences>
 	getProducts: (params?: i.ProductsQuery) => Promise<i.PaginatedProducts>
 	getResearchMaterials: (
-		params?: i.ResearchMaterialsQuery
+		params?: i.ResearchMaterialsQuery,
 	) => Promise<i.PaginatedResearchMaterials>
 	getSpinouts: (params?: i.SpinoutsQuery) => Promise<i.PaginatedSpinOuts>
 	getFurtherFundings: (
-		params?: i.FurtherFundingsQuery
+		params?: i.FurtherFundingsQuery,
 	) => Promise<i.PaginatedFurtherFunding>
 	getDisseminations: (
-		params?: i.DisseminationsQuery
+		params?: i.DisseminationsQuery,
 	) => Promise<i.PaginatedDissemination>
 
 	// getObject Methods
 	//
 	getPerson: (id: string) => Promise<i.SingleObjectResponse<i.Person>>
 	getOrganisation: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.Organisation>>
 	getFund: (id: string) => Promise<i.SingleObjectResponse<i.Fund>>
 	getKeyFinding: (id: string) => Promise<i.SingleObjectResponse<i.KeyFinding>>
 	getImpactSummary: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.ImpactSummary>>
 	getPublication: (id: string) => Promise<i.SingleObjectResponse<i.Publication>>
 	getCollaboration: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.Collaboration>>
 	getIntellectualProperty: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PolicyInfluence>>
 	getProduct: (id: string) => Promise<i.SingleObjectResponse<i.Product>>
 	getResearchMaterial: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.ResearchMaterial>>
 	getSpinOut: (id: string) => Promise<i.SingleObjectResponse<i.SpinOut>>
 	getFurtherFunding: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.FurtherFunding>>
 	getDissemination: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.Dissemination>>
 	// getAssociatedObjects Methods
 	//
 	getPersonProjects: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedProjects>>
 	getPersonOrganisations: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedProjects>>
 	getProjectFunds: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedFunds>>
 	getProjectOrganisations: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedProjectOrganisations>>
 	getProjectPersons: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedPersons>>
 	getProjectOutcomes: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedOutcomes>>
 	getProjectKeyFindings: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedKeyFindings>>
 	getProjectImpactSummaries: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedImpactSummaries>>
 	getProjectPublications: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedPublications>>
 	getProjectCollaborations: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedCollaborations>>
 	getProjectIntellectualProperties: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedIntellectualProperties>>
 	getProjectProducts: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedProducts>>
 	getProjectResearchMaterials: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedResearchMaterials>>
 	getProjectSpinOuts: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedSpinOuts>>
 	getProjectDisseminations: (
-		id: string
+		id: string,
 	) => Promise<i.SingleObjectResponse<i.PaginatedDissemination>>
 }

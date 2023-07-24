@@ -2,5 +2,5 @@
 	"$schema": "https://typedoc.org/schema.json",
 	"entryPoints": ["src/index.ts"],
 	"out": "docs",
-	"tsconfig": "tsconfig.esm.json"
+	"tsconfig": "tsconfig.build.esm.json"
 }
